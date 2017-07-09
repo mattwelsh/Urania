@@ -10,23 +10,23 @@ import java.util.*;
  * @author Matt Welsh July 8, 2017
  */
 
-public class JulianDayNumber {
+public class JulianDate {
 
     private static GregorianCalendar CALENDAR_CUTOVER = new GregorianCalendar(1582, 10, 15);
     private GregorianCalendar gregorianCalendar;
     private double julianDayNumber;
 
     /**
-     * Create an instance of JulianDayNumber for the current system time.
+     * Create an instance of JulianDate for the current system time.
      *
      */
-    public JulianDayNumber() {
+    public JulianDate() {
 
         this(new GregorianCalendar());
     }
 
     /**
-     * Create an instance of JulianDayNumber set to the date and time specified. All parameters must conform to the
+     * Create an instance of JulianDate set to the date and time specified. All parameters must conform to the
      * rules for creating a GregorianCalendar.
      *
      * @param year The year
@@ -36,15 +36,15 @@ public class JulianDayNumber {
      * @param minutes The minutes
      * @param seconds The hour
      */
-    public JulianDayNumber(int year, int month, int day, int hour, int minutes, int seconds) {
+    public JulianDate(int year, int month, int day, int hour, int minutes, int seconds) {
         this(new GregorianCalendar(year, month, day, hour, minutes, seconds));
     }
 
     /**
-     * Create an instance of JulianDayNumber set to the time specified in the passed calendar object.
+     * Create an instance of JulianDate set to the time specified in the passed calendar object.
      * @param calendar The calendar to use specifying the date and time for the computed JD
      */
-    public JulianDayNumber(GregorianCalendar calendar) {
+    public JulianDate(GregorianCalendar calendar) {
         this.gregorianCalendar = calendar;
         computeJulianDayNumber();
     }
