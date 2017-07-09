@@ -1,9 +1,9 @@
-package com.mattwelsh;
+package com.mattwelsh.test.util;
 
-import java.util.*;
-import com.mattwelsh.astronomy.time.JulianDayNumber;
+// import java.util.*;
+import com.mattwelsh.util.JulianDayNumber;
 
-public class Main {
+public class UtilTest {
 
     public static void main(String[] args) {
 

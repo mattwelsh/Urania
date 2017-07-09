@@ -1,4 +1,4 @@
-package com.mattwelsh.astronomy.time;
+package com.mattwelsh.util;
 import java.util.*;
 
 /**
