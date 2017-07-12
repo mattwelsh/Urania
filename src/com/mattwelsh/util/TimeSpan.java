@@ -18,12 +18,6 @@ public class TimeSpan {
 
     private GregorianCalendar startDate;
     private GregorianCalendar endDate;
-    private int years;
-    private int months;
-    private int days;
-    private int hours;
-    private int minutes;
-    private float seconds;
     private double length;
     private boolean forward;
 
