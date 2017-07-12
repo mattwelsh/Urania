@@ -1,15 +1,19 @@
 package com.mattwelsh.test.util;
 
-// import java.util.*;
 import com.mattwelsh.util.JulianDate;
+import com.mattwelsh.util.TimeSpan;
+
+import java.util.GregorianCalendar;
 
 public class UtilTest {
 
     public static void main(String[] args) {
 
+        testJulianDayNumbers();
+        testTimeSpan();
+    }
 
-        //final GregorianCalendar dateTime = new GregorianCalendar(1986, 12, 13, 0, 0, 0);
-
+    private static void testJulianDayNumbers() {
 
         JulianDate jdn2 = new JulianDate(2000, 1, 1, 12, 0, 0);
         System.out.println(jdn2.getJulianDayNumber());
@@ -43,6 +47,64 @@ public class UtilTest {
         System.out.println(jdn10.getJulianDayNumber());
         assert jdn10.getJulianDayNumber() == 2026871.8168055555;
 
+        System.out.println("//----------------------------------//");
+        System.out.println("End JulianDate Test");
+        System.out.println("//----------------------------------// \n\n");
 
     }
+
+    private static void testTimeSpan() {
+
+        TimeSpan span2 = new TimeSpan(new GregorianCalendar(2001, 5, 1), new GregorianCalendar(2001, 5, 18));
+        System.out.println(span2.getCenturies());
+        assert (span2.getCenturies() == 0);
+        System.out.println(span2.getDecades());
+        assert (span2.getDecades() == 0);
+        System.out.println(span2.getYears());
+        assert (span2.getYears() == 0);
+        System.out.println(span2.getMonths());
+        assert (span2.getMonths() == 0);
+        System.out.println(span2.getWeeks());
+        assert (span2.getWeeks() == 2);
+        System.out.println(span2.getDays());
+        assert (span2.getDays() == 18310);
+        System.out.println("//----------------------------------//");
+        System.out.println("End TimeSpan Test 1");
+        System.out.println("//----------------------------------// \n\n");
+
+        span2 = new TimeSpan(new GregorianCalendar(1964, 5, 1), new GregorianCalendar(2014, 6, 18));
+        System.out.println(span2.getCenturies());
+        assert (span2.getCenturies() == 0);
+        System.out.println(span2.getDecades());
+        assert (span2.getDecades() == 5);
+        System.out.println(span2.getYears());
+        assert (span2.getYears() == 50);
+        System.out.println(span2.getMonths());
+        assert (span2.getMonths() == 601);
+        System.out.println(span2.getDays());
+        assert (span2.getDays() == 18310);
+
+        System.out.println("//----------------------------------//");
+        System.out.println("End TimeSpan Test 2");
+        System.out.println("//----------------------------------// \n\n");
+
+        span2 = new TimeSpan(new GregorianCalendar(2014, 1, 1), new GregorianCalendar(2014, 12, 31));
+        System.out.println(span2.getCenturies());
+        assert (span2.getCenturies() == 0);
+        System.out.println(span2.getDecades());
+        assert (span2.getDecades() == 0);
+        System.out.println(span2.getYears());
+        assert (span2.getYears() == 0);
+        System.out.println(span2.getMonths());
+        assert (span2.getMonths() == 11);
+        System.out.println(span2.getDays());
+        assert (span2.getDays() == 364);
+
+        System.out.println("//----------------------------------//");
+        System.out.println("End TimeSpan Test 3");
+        System.out.println("//----------------------------------// \n\n");
+
+
+    }
+
 }

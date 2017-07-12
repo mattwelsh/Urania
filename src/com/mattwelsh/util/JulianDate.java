@@ -55,6 +55,7 @@ public class JulianDate {
      * @return The Julian Day Number for the date represented in this object.
      */
     public double getJulianDayNumber() {
+
         return julianDayNumber;
     }
 
