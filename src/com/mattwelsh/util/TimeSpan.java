@@ -1,6 +1,6 @@
 package com.mattwelsh.util;
 
-import java.util.GregorianCalendar;
+import java.util.*;
 
 /**
  * This class represents a span of time between two points in time. It uses the JulianDate class to calculate the span
@@ -16,28 +16,44 @@ import java.util.GregorianCalendar;
 
 public class TimeSpan {
 
-    private GregorianCalendar startDate;
-    private GregorianCalendar endDate;
+    private GregorianCalendar startDateGregorian;
+    private GregorianCalendar endDateGregorian;
+    private JulianDate startDateJulian;
+    private JulianDate endDateJulian;
     private double length;
     private boolean forward;
 
 
     /**
-     * Create a TimeSpan object representing the length of time between startDate and endDate. The order the arguments
+     * Create a TimeSpan object representing the length of time between startDateGregorian and endDateGregorian. The order the arguments
      * are passed is irrelevant to the computed length.
      *
-     * @param startDate The starting date or the time span.
-     * @param endDate The ending date of the time span.
+     * @param startDateGregorian The starting date or the time span.
+     * @param endDateGregorian The ending date of the time span.
      */
-    public TimeSpan(GregorianCalendar startDate, GregorianCalendar endDate) {
+    public TimeSpan(GregorianCalendar startDateGregorian, GregorianCalendar endDateGregorian) {
 
-        this.startDate = startDate;
-        this.endDate = endDate;
-        JulianDate start = new JulianDate(startDate);
-        JulianDate end = new JulianDate(endDate);
+        this.startDateGregorian = startDateGregorian;
+        this.endDateGregorian = endDateGregorian;
+        startDateJulian = new JulianDate(startDateGregorian);
+        endDateJulian = new JulianDate(endDateGregorian);
 
-        forward = (start.getJulianDayNumber() - end.getJulianDayNumber()) >= 0;
-        length = Math.abs(start.getJulianDayNumber() - end.getJulianDayNumber());
+        forward = (startDateJulian.getJulianDayNumber() - endDateJulian.getJulianDayNumber()) >= 0;
+        length = Math.abs(startDateJulian.getJulianDayNumber() - endDateJulian.getJulianDayNumber());
+    }
+
+    /**
+     * Create a TimeSpan with the given start date and length in days. The length may be negative resulting in an end
+     * date before the start time.
+     *
+     * @param startDateGregorian The start of the time span.
+     * @param length The length of the time span.
+     */
+    public TimeSpan(GregorianCalendar startDateGregorian, double length) {
+
+        this.startDateGregorian = startDateGregorian;
+        this.endDateGregorian = computeEndDate(length);
+
     }
 
     /**
@@ -45,8 +61,8 @@ public class TimeSpan {
      *
      * @return The start date of the time span.
      */
-    public GregorianCalendar getStartDate() {
-        return startDate;
+    public GregorianCalendar getStartDateGregorian() {
+        return startDateGregorian;
     }
 
     /**
@@ -54,8 +70,8 @@ public class TimeSpan {
      *
      * @return The end date used to construct the span.
      */
-    public GregorianCalendar endStartDate() {
-        return endDate;
+    public GregorianCalendar getEndDateGregorian() {
+        return endDateGregorian;
     }
 
     /**
@@ -123,18 +139,105 @@ public class TimeSpan {
         GregorianCalendar g2;
 
         if(forward) {
-            g1 = startDate;
-            g2 = endDate;
+            g1 = startDateGregorian;
+            g2 = endDateGregorian;
         }
         else {
-            g1 = endDate;
-            g2 = startDate;
+            g1 = endDateGregorian;
+            g2 = startDateGregorian;
         }
 
         long temp = (long) g1.get(GregorianCalendar.YEAR) - (long) g2.get(GregorianCalendar.YEAR);
         temp = temp * 12;
         temp += g1.get(GregorianCalendar.MONTH) - g2.get(GregorianCalendar.MONTH);
         return temp;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Private and protected methods
+    //------------------------------------------------------------------------------------------------------------------
+
+    private GregorianCalendar computeEndDate(double length) {
+        startDateJulian = new JulianDate(this.startDateGregorian);
+        return computeCalendarDate(this.startDateJulian.getJulianDayNumber() + length);
+    }
+
+    private GregorianCalendar computeCalendarDate(double julianDate) {
+        double startJD = julianDate;
+        startJD += 0.5;
+        double z = getInteger(startJD);
+        double f = getFractional(startJD);
+        double a;
+        double alpha;
+
+        if(z < 2299161) {
+            a = z;
+        }
+        else {
+            alpha = getInteger((z-1867216.25)/36524.25);
+            a = z + 1.0 + alpha - getInteger(alpha / 4.0);
+        }
+
+        double b = a + 1524;
+        double c = getInteger((b-122.1)/365.25);
+        double d = getInteger(365.25 * c);
+        double e = getInteger((b-d)/30.6001);
+
+        double day = b - d - (long)(30.6001 * e) + f;
+
+        double month;
+        if(e < 14) {
+            month = e - 1;
+        } else {
+            month = e - 13;
+        }
+
+        double year;
+        if (month > 2) {
+            year = c - 4716;
+        }
+        else {
+            year = c - 4715;
+        }
+
+        double hours = getFractional(day);
+        hours = hours * 24;
+        day = getInteger(day);
+
+        double minutes = getFractional(hours);
+        minutes = minutes * 60;
+
+        double seconds = getFractional(minutes);
+        minutes = getInteger(minutes);
+        seconds = seconds *60;
+
+        double milliseconds = getFractional(seconds);
+        seconds = getInteger(seconds);
+        milliseconds *= 1000;
+
+        GregorianCalendar greg =  new GregorianCalendar((int)year, (int)month, (int)day,
+                                    (int)hours, (int)minutes, (int)seconds);
+
+        greg.set(Calendar.MILLISECOND, (int)milliseconds);
+        return greg;
+
+    }
+
+    private double getFractional(double d) {
+        return d - getInteger(d);
+    }
+
+    private double getInteger(double d) {
+        return (double)((long)d);
+    }
+
+    private void printGregorianCalendar(GregorianCalendar greg) {
+
+        System.out.println("Computed Date: " + greg.get(Calendar.MONTH) + "/" + greg.get(Calendar.DAY_OF_MONTH) + "/" +
+                            greg.get(Calendar.YEAR) + " at " + greg.get(Calendar.HOUR_OF_DAY) + ":" +
+                            greg.get(Calendar.MINUTE) + ":" + greg.get(Calendar.SECOND) + ":" +
+                            greg.get(Calendar.MILLISECOND));
+
     }
 
 }
