@@ -25,8 +25,8 @@ public class TimeSpan {
 
 
     /**
-     * Create a TimeSpan object representing the length of time between startDateGregorian and endDateGregorian. The order the arguments
-     * are passed is irrelevant to the computed length.
+     * Create a TimeSpan object representing the length of time between startDateGregorian and endDateGregorian. The
+     * order the arguments are passed is irrelevant to the computed length.
      *
      * @param startDateGregorian The starting date or the time span.
      * @param endDateGregorian The ending date of the time span.
@@ -53,7 +53,9 @@ public class TimeSpan {
 
         this.startDateGregorian = startDateGregorian;
         this.endDateGregorian = computeEndDate(length);
-
+        startDateJulian = new JulianDate(startDateGregorian);
+        endDateJulian = new JulianDate(endDateGregorian);
+        this.length = Math.abs(startDateJulian.getJulianDayNumber() - endDateJulian.getJulianDayNumber());
     }
 
     /**

@@ -1,18 +1,110 @@
-package com.mattwelsh.test.util;
+package com.mattwelsh.util;
 
-import com.mattwelsh.util.JulianDate;
-import com.mattwelsh.util.TimeSpan;
-
-import java.util.Calendar;
 import java.util.GregorianCalendar;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
-public class UtilTest {
+import static org.junit.Assert.*;
 
-    public static void main(String[] args) {
+/**
+ * Created by Matt on 7/15/17.
+ */
+public class TimeSpanTest {
 
-        testTimeSpan();
+    @Before
+    public void setUp() throws Exception {
+
     }
 
+    @After
+    public void tearDown() throws Exception {
+
+    }
+
+    @Test
+    public void getStartDateGregorian() throws Exception {
+        GregorianCalendar cal1 = new GregorianCalendar(2001, 5, 1);
+        TimeSpan span2 = new TimeSpan(cal1, new GregorianCalendar(2001, 5, 18));
+        Assert.assertEquals(span2.getStartDateGregorian(), cal1);
+
+        cal1 = new GregorianCalendar(1964, 5, 1);
+        span2 = new TimeSpan(cal1, new GregorianCalendar(2014, 6, 18));
+        Assert.assertEquals(span2.getStartDateGregorian(), cal1);
+
+        cal1 = new GregorianCalendar(2014, 1, 1);
+        span2 = new TimeSpan(cal1, new GregorianCalendar(2014, 6, 18));
+        Assert.assertEquals(span2.getStartDateGregorian(), cal1);
+
+        cal1 = new GregorianCalendar();
+        span2 = new TimeSpan(cal1, new GregorianCalendar(2014, 6, 18));
+        Assert.assertEquals(span2.getStartDateGregorian(), cal1);
+    }
+
+    @Test
+    public void getEndDateGregorian() throws Exception {
+        GregorianCalendar cal1 = new GregorianCalendar(2001, 5, 1);
+        TimeSpan span2 = new TimeSpan(new GregorianCalendar(2001, 5, 18), cal1);
+        Assert.assertEquals(span2.getEndDateGregorian(), cal1);
+
+        cal1 = new GregorianCalendar(1964, 5, 1);
+        span2 = new TimeSpan(new GregorianCalendar(2014, 6, 18), cal1);
+        Assert.assertEquals(span2.getEndDateGregorian(), cal1);
+
+        cal1 = new GregorianCalendar(2014, 6, 18);
+        span2 = new TimeSpan(new GregorianCalendar(2014, 1, 1), new GregorianCalendar(2014, 6, 18));
+        Assert.assertEquals(span2.getEndDateGregorian(), cal1);
+
+        cal1 = new GregorianCalendar(2014, 1, 2);
+        span2 = new TimeSpan(new GregorianCalendar(2014, 1, 1), 1.0);
+        Assert.assertEquals(span2.getEndDateGregorian(), cal1);
+    }
+
+    @Test
+    public void getLength() throws Exception {
+
+        TimeSpan span2 = new TimeSpan(new GregorianCalendar(2014, 1, 1), 1.0);
+        Assert.assertEquals(span2.getLength(), 1.0, 0.0);
+
+        span2 = new TimeSpan(new GregorianCalendar(2011, 2, 14), new GregorianCalendar(2012, 2, 14));
+        Assert.assertEquals(span2.getLength(), 365.0, 0.0);
+
+    }
+
+    @Test
+    public void getWeeks() throws Exception {
+
+    }
+
+    @Test
+    public void getDays() throws Exception {
+
+    }
+
+    @Test
+    public void getYears() throws Exception {
+
+    }
+
+    @Test
+    public void getDecades() throws Exception {
+
+    }
+
+    @Test
+    public void getCenturies() throws Exception {
+
+    }
+
+    @Test
+    public void getMonths() throws Exception {
+
+    }
+
+}
+
+/*
 
     private static void testTimeSpan() {
 
@@ -80,4 +172,5 @@ public class UtilTest {
 
     }
 
-}
+
+ */
