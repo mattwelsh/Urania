@@ -9,6 +9,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
+ * Tests the Time Span Class
  * Created by Matt on 7/15/17.
  */
 public class TimeSpanTest {
@@ -74,103 +75,54 @@ public class TimeSpanTest {
 
     @Test
     public void getWeeks() throws Exception {
+        TimeSpan span2 = new TimeSpan(new GregorianCalendar(2014, 1, 1), 7.0);
+        Assert.assertEquals(span2.getLength(), 7.0, 0.0);
+
+        span2 = new TimeSpan(new GregorianCalendar(2014, 1, 1), new GregorianCalendar(2014, 1, 7));
+        Assert.assertEquals(span2.getLength(), 6.0, 0.0);
 
     }
 
     @Test
     public void getDays() throws Exception {
+        TimeSpan span2 = new TimeSpan(new GregorianCalendar(2014, 1, 1), 1.5);
+        Assert.assertEquals(span2.getDays(), 1, 0);
+
+        span2 = new TimeSpan(new GregorianCalendar(2011, 2, 14), new GregorianCalendar(2012, 2, 14));
+        Assert.assertEquals(span2.getDays(), 365.0, 0);
 
     }
 
     @Test
     public void getYears() throws Exception {
+        TimeSpan span2 = new TimeSpan(new GregorianCalendar(2014, 1, 1), 378.5);
+        Assert.assertEquals(span2.getYears(), 1, 0);
+
+        span2 = new TimeSpan(new GregorianCalendar(2011, 2, 14), new GregorianCalendar(2017, 3, 14));
+        Assert.assertEquals(span2.getYears(), 6, 0);
 
     }
 
     @Test
     public void getDecades() throws Exception {
-
+        TimeSpan span2 = new TimeSpan(new GregorianCalendar(1957, 5, 18), new GregorianCalendar(2007, 5, 19));
+        Assert.assertEquals(span2.getDecades(), 5, 0);
     }
 
     @Test
     public void getCenturies() throws Exception {
-
+        TimeSpan span2 = new TimeSpan(new GregorianCalendar(1857, 5, 18), new GregorianCalendar(2057, 5, 19));
+        Assert.assertEquals(span2.getCenturies(), 2, 0);
     }
 
     @Test
     public void getMonths() throws Exception {
+        TimeSpan span2 = new TimeSpan(new GregorianCalendar(2014, 1, 1), 378.5);
+        Assert.assertEquals(span2.getMonths(), 12, 0);
+
+        span2 = new TimeSpan(new GregorianCalendar(1957, 2, 14), new GregorianCalendar(2057, 2, 15));
+        Assert.assertEquals(span2.getMonths(), 1200, 0);
 
     }
 
 }
-
-/*
-
-    private static void testTimeSpan() {
-
-        TimeSpan span2 = new TimeSpan(new GregorianCalendar(2001, 5, 1), new GregorianCalendar(2001, 5, 18));
-
-        //System.out.println(span2.getCenturies());
-        assert (span2.getCenturies() == 0);
-        //System.out.println(span2.getDecades());
-        assert (span2.getDecades() == 0);
-        //System.out.println(span2.getYears());
-        assert (span2.getYears() == 0);
-        //System.out.println(span2.getMonths());
-        assert (span2.getMonths() == 0);
-        //System.out.println(span2.getWeeks());
-        assert (span2.getWeeks() == 2);
-        //System.out.println(span2.getDays());
-        assert (span2.getDays() == 18310);
-        System.out.println("//----------------------------------//");
-        System.out.println("End TimeSpan Test 1");
-        System.out.println("//----------------------------------// \n\n");
-
-        span2 = new TimeSpan(new GregorianCalendar(1964, 5, 1), new GregorianCalendar(2014, 6, 18));
-        //System.out.println(span2.getCenturies());
-        assert (span2.getCenturies() == 0);
-        //System.out.println(span2.getDecades());
-        assert (span2.getDecades() == 5);
-        //System.out.println(span2.getYears());
-        assert (span2.getYears() == 50);
-        //System.out.println(span2.getMonths());
-        assert (span2.getMonths() == 601);
-        //System.out.println(span2.getDays());
-        assert (span2.getDays() == 18310);
-
-        System.out.println("//----------------------------------//");
-        System.out.println("End TimeSpan Test 2");
-        System.out.println("//----------------------------------// \n\n");
-
-        span2 = new TimeSpan(new GregorianCalendar(2014, 1, 1), new GregorianCalendar(2014, 12, 31));
-        //System.out.println(span2.getCenturies());
-        assert (span2.getCenturies() == 0);
-        //System.out.println(span2.getDecades());
-        assert (span2.getDecades() == 0);
-        //System.out.println(span2.getYears());
-        assert (span2.getYears() == 0);
-        //System.out.println(span2.getMonths());
-        assert (span2.getMonths() == 11);
-        //System.out.println(span2.getDays());
-        assert (span2.getDays() == 364);
-
-        System.out.println("//----------------------------------//");
-        System.out.println("End TimeSpan Test 3");
-        System.out.println("//----------------------------------// \n\n\n\n\n\n\n");
-
-        span2 = new TimeSpan(new GregorianCalendar(2017, 5, 16), 2.25278757866539);
-        //span2 = new TimeSpan(new GregorianCalendar(), 2.0);
-
-        GregorianCalendar greg = span2.getEndDateGregorian();
-
-        assert greg != null;
-
-        System.out.println("Computed Date: " + greg.get(Calendar.MONTH) + "/" + greg.get(Calendar.DAY_OF_MONTH) + "/" +
-                greg.get(Calendar.YEAR) + " at " + greg.get(Calendar.HOUR_OF_DAY) + ":" +
-                greg.get(Calendar.MINUTE) + ":" + greg.get(Calendar.SECOND) + "." +
-                greg.get(Calendar.MILLISECOND));
-
-    }
-
-
- */
