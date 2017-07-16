@@ -11,6 +11,7 @@ import java.util.*;
  *
  * If you want the exact span length use getLength() which returns the exact span length as a double.
  *
+ * @version 1.0.0
  * @author Matt Welsh July 11, 2017
  */
 

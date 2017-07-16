@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 /**
  * Unit tests for Julian Date object using example dates from Jean Meeus
  *
+ * @version 1.0.0
  * Created by Matt on 7/15/17.
  */
 public class JulianDateTest {
