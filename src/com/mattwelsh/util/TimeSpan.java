@@ -29,7 +29,6 @@ public class TimeSpan {
    * Create a TimeSpan object representing the length of time between startDateGregorian and
    * endDateGregorian. The order the arguments are passed is irrelevant to the computed length.
    *
-   *
    * @param startDateGregorian The starting date or the time span.
    * @param endDateGregorian The ending date of the time span.
    */
