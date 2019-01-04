@@ -8,7 +8,9 @@ import java.util.*;
  * is ignored and there are methods to get the span length in days, weeks, months, years, decades
  * and centuries that ignore fractional parts. For example, the span of time between March 7, 2017
  * at 5:00am and March 7, 2017 at 5:00pm returns '1' for getDays() rather than 1.5 following the
- * convention people most often use when speaking.
+ * convention people most often use when speaking. Note that we don't specify the time zone for the
+ * two dates (as in March 7, 2017 at 5:00am UTC) because they are assumed to be for the same
+ * location.
  *
  * <p>If you want the exact span length use getLength() which returns the exact span length as a
  * double.
@@ -156,9 +158,9 @@ public class TimeSpan {
     return temp;
   }
 
-  // ------------------------------------------------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------------------------
   // Private and protected methods
-  // ------------------------------------------------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------------------------
 
   private GregorianCalendar computeEndDate(double length) {
     startDateJulian = new JulianDate(this.startDateGregorian);

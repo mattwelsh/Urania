@@ -19,7 +19,6 @@ public class JulianDate {
 
   /** Create an instance of JulianDate for the current system time. */
   public JulianDate() {
-
     this(new GregorianCalendar());
   }
 
@@ -54,13 +53,12 @@ public class JulianDate {
    * @return The Julian Day Number for the date represented in this object.
    */
   public double getJulianDayNumber() {
-
     return julianDayNumber;
   }
 
-  // ------------------------------------------------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------------------------
   // Protected and private methods
-  // ------------------------------------------------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------------------------
 
   private void computeJulianDayNumber() {
     int B;
