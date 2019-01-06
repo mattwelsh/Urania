@@ -1,13 +1,28 @@
+/*
+ * Copyright (C) 2017-2019 by Matt Welsh
+ * This library is free software; you can redistribute it and/or modify it under the terms of the
+ * GNU Lesser General Public License as published by the Free Software Foundation; either version
+ * 2.1 of the License, or any later version.
+ *
+ * This library is distributed in the
+ * hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+ * more details. You should have received a copy of the GNU Lesser General Public License along
+ * with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street,
+ * Fifth Floor, Boston, MA 02110-1301 USA
+ */
+
 package com.mattwelsh.util;
-
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Unit tests for Julian Date object using example dates from Jean Meeus
  *
- * @version 1.0.0 Created by Matt on 7/15/17.
+ * @author Matt Welsh
+ * @version 1.0
+ * @since 1.0
  */
 public class JulianDateTest {
     @Test
@@ -36,6 +51,12 @@ public class JulianDateTest {
 
         jdn2 = new JulianDate(837, 4, 10, 7, 36, 12);
         org.junit.Assert.assertEquals(jdn2.getJulianDayNumber(), 2026871.8168055555, 0);
+
+        jdn2 = new JulianDate(1992, 10, 13, 0, 0, 0);
+        org.junit.Assert.assertEquals(jdn2.getJulianDayNumber(), 2448908.5, 0);
+
+        jdn2 = new JulianDate(new GregorianCalendar(2000, Calendar.FEBRUARY, 1, 12, 0, 0));
+        org.junit.Assert.assertEquals(jdn2.getJulianDayNumber(), 2451545.0, 0);
 
     }
 

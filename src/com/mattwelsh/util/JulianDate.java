@@ -1,3 +1,17 @@
+/*
+ * Copyright (C) 2017-2019 by Matt Welsh
+ * This library is free software; you can redistribute it and/or modify it under the terms of the
+ * GNU Lesser General Public License as published by the Free Software Foundation; either version
+ * 2.1 of the License, or any later version.
+ *
+ * This library is distributed in the
+ * hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+ * more details. You should have received a copy of the GNU Lesser General Public License along
+ * with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street,
+ * Fifth Floor, Boston, MA 02110-1301 USA
+ */
+
 package com.mattwelsh.util;
 
 import java.util.*;
@@ -9,7 +23,9 @@ import java.util.*;
  * Gregorian calendar). Due to the way GregorianCalendar works, this class only works for dates
  * after Jan 1, 1AD.
  *
- * @author Matt Welsh July 8, 2017
+ * @author Matt Welsh (mitya.welsh@gmail.com)
+ * @version 1.0
+ * @since 1.0
  */
 public class JulianDate {
 
@@ -78,11 +94,16 @@ public class JulianDate {
             + ((double) gregorianCalendar.get(GregorianCalendar.MINUTE)) / 1440.0
             + ((double) gregorianCalendar.get(GregorianCalendar.SECOND)) / 86400.0;
 
-    if (gregorianCalendar.get(GregorianCalendar.YEAR) < 0) {
-      C = -.75;
-    } else {
-      C = 0;
-    }
+    // Due to the way GregorianCalendar works, this class only works for dates after Jan 1, 1AD
+    // so the following block of code isn't needed. It's left here only so that anyone comparing the
+    // code to Meeus's book won't be confused about why it's missing.
+
+    // if (gregorianCalendar.get(GregorianCalendar.YEAR) < 0) {
+    //  C = -.75;
+    // } else {
+    //  C = 0;
+    //    }
+    C = 0.0;
 
     if (gregorianCalendar.get(GregorianCalendar.MONTH) > 2) {
 

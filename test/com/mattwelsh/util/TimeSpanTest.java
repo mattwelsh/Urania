@@ -1,3 +1,17 @@
+/*
+ * Copyright (C) 2017-2019 by Matt Welsh
+ * This library is free software; you can redistribute it and/or modify it under the terms of the
+ * GNU Lesser General Public License as published by the Free Software Foundation; either version
+ * 2.1 of the License, or any later version.
+ *
+ * This library is distributed in the
+ * hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+ * more details. You should have received a copy of the GNU Lesser General Public License along
+ * with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street,
+ * Fifth Floor, Boston, MA 02110-1301 USA
+ */
+
 package com.mattwelsh.util;
 
 import java.util.GregorianCalendar;
@@ -6,9 +20,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-/** Tests the Time Span Class Created by Matt on 7/15/17. */
+/**
+ * Unit tests for Time Span Class
+ *
+ * @author Matt Welsh
+ * @version 1.0
+ * @since 1.0
+ */
 public class TimeSpanTest {
 
   @Before
@@ -59,7 +77,7 @@ public class TimeSpanTest {
   public void getLength() throws Exception {
 
     TimeSpan span2 = new TimeSpan(new GregorianCalendar(2014, 1, 1), 1.0);
-    Assert.assertEquals(span2.getLength(), 1.0, 0.0);
+    Assert.assertEquals(span2.getLength(), 1, 0);
 
     span2 = new TimeSpan(new GregorianCalendar(2011, 2, 14), new GregorianCalendar(2012, 2, 14));
     Assert.assertEquals(span2.getLength(), 365.0, 0.0);
@@ -67,11 +85,13 @@ public class TimeSpanTest {
 
   @Test
   public void getWeeks() throws Exception {
-    TimeSpan span2 = new TimeSpan(new GregorianCalendar(2014, 1, 1), 7.0);
-    Assert.assertEquals(span2.getLength(), 7.0, 0.0);
 
-    span2 = new TimeSpan(new GregorianCalendar(2014, 1, 1), new GregorianCalendar(2014, 1, 7));
-    Assert.assertEquals(span2.getLength(), 6.0, 0.0);
+    TimeSpan span = new TimeSpan(new GregorianCalendar(2014, 1, 1), new GregorianCalendar(2015, 1, 1));
+    Assert.assertEquals(span.getWeeks(), 52, 0);
+
+    span = new TimeSpan(new GregorianCalendar(2014, 1, 1), new GregorianCalendar(2017, 1, 1));
+    Assert.assertEquals(span.getWeeks(), 156, 0);
+
   }
 
   @Test
@@ -80,7 +100,7 @@ public class TimeSpanTest {
     Assert.assertEquals(span2.getDays(), 1, 0);
 
     span2 = new TimeSpan(new GregorianCalendar(2011, 2, 14), new GregorianCalendar(2012, 2, 14));
-    Assert.assertEquals(span2.getDays(), 365.0, 0);
+    Assert.assertEquals(span2.getDays(), 365, 0);
   }
 
   @Test

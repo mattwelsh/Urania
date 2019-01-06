@@ -1,3 +1,17 @@
+/*
+ * Copyright (C) 2017-2019 by Matt Welsh
+ * This library is free software; you can redistribute it and/or modify it under the terms of the
+ * GNU Lesser General Public License as published by the Free Software Foundation; either version
+ * 2.1 of the License, or any later version.
+ *
+ * This library is distributed in the
+ * hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+ * more details. You should have received a copy of the GNU Lesser General Public License along
+ * with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street,
+ * Fifth Floor, Boston, MA 02110-1301 USA
+ */
+
 package com.mattwelsh.util;
 
 import java.util.*;
@@ -15,8 +29,9 @@ import java.util.*;
  * <p>If you want the exact span length use getLength() which returns the exact span length as a
  * double.
  *
- * @author Matt Welsh July 11, 2017
- * @version 1.0.0
+ * @author Matt Welsh (mitya.welsh@gmail.com)
+ * @version 1.0
+ * @since 1.0
  */
 public class TimeSpan {
 
@@ -232,24 +247,5 @@ public class TimeSpan {
 
   private double getInteger(double d) {
     return (double) ((long) d);
-  }
-
-  private void printGregorianCalendar(GregorianCalendar greg) {
-
-    System.out.println(
-        "Computed Date: "
-            + greg.get(Calendar.MONTH)
-            + "/"
-            + greg.get(Calendar.DAY_OF_MONTH)
-            + "/"
-            + greg.get(Calendar.YEAR)
-            + " at "
-            + greg.get(Calendar.HOUR_OF_DAY)
-            + ":"
-            + greg.get(Calendar.MINUTE)
-            + ":"
-            + greg.get(Calendar.SECOND)
-            + ":"
-            + greg.get(Calendar.MILLISECOND));
   }
 }
