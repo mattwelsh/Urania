@@ -49,6 +49,12 @@ package com.mattwelsh.astronomy.coordinates;
  */
 public class Declination extends Coordinate {
 
+  /**
+   * Create an instance of a Declination class using the passed decimal degrees.
+   *
+   * @param decimalDegrees The value of the coordinate represented by this class. This will
+   * cause a recalculation of all fields in this object.
+   */
   public Declination(double decimalDegrees) {
     super(decimalDegrees);
   }
