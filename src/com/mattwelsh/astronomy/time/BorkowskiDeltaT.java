@@ -29,7 +29,7 @@ public class BorkowskiDeltaT implements DeltaTCalculator {
 
   /**
    * Return an approximation of the delta in seconds between Dynamical Time(TD) and Universal
-   * Time(UT) using the method described by Borkowski (1988).
+   * Time(UT) using the method described by Borkowski (1988). This is currently a placeholder.
    *
    *
    * @param julianDate @return Return an approximation of the delta in seconds between Dynamical Time (TD) and

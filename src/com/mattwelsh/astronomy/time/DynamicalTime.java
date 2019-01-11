@@ -32,7 +32,12 @@ public enum DynamicalTime {
   /**
    * Create a calculator that will use the Chapront-Touze & Chapront (1991) method of computation.
    */
-  CHAPRONT {public DeltaTCalculator getCalculator() { return new ChaprontDeltaT();}};
+  CHAPRONT {public DeltaTCalculator getCalculator() { return new ChaprontDeltaT();}},
+
+  /**
+   * Create a calculator that will use the the method described by Borkowski (1988).
+   */
+  BORKOWSKI {public DeltaTCalculator getCalculator() { return new BorkowskiDeltaT();}};
 
   /**
    * Return an instance of DeltaTCalculator that can be used to determine the delta between

@@ -25,7 +25,7 @@ class ChaprontDeltaT implements DeltaTCalculator {
   /**
    * Return an approximation of the delta in seconds between Dynamical Time(TD) and Universal
    * Time(UT) using the method described by Chapront-Touze & Chapront (1991) in Lunar Tables and
-   * Programs From 4000B.C. to A.D. 8000.
+   * Programs From 4000B.C. to A.D. 8000. Currently a placeholder.
    *
    *
    * @param julianDate The date to calculate delta T for.
@@ -33,7 +33,6 @@ class ChaprontDeltaT implements DeltaTCalculator {
    *     Universal Time * (UT)
    */
   public double getDeltaT(JulianDate julianDate) {
-    System.out.println("Using Chapront delta T calculator...");
-    return 5;
+    return 0;
   }
 }
