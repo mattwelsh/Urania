@@ -55,10 +55,6 @@ class MeeusDeltaT implements DeltaTCalculator {
         65.15, 65.50, 65.80, 66.10
       };
 
-  // -----------------------------------------------------------------------------------------------
-  // Protected and private methods
-  // -----------------------------------------------------------------------------------------------
-
   /**
    * Return an approximation of the delta in seconds between Dynamical Time(TD) and Universal
    * Time(UT) using the method described by J. Meeus (1998):
@@ -99,6 +95,10 @@ class MeeusDeltaT implements DeltaTCalculator {
       return methodTwo(julianDate);
     }
   }
+
+  // -----------------------------------------------------------------------------------------------
+  // Protected and private methods
+  // -----------------------------------------------------------------------------------------------
 
   private double methodOne(JulianDate julianDate) {
     System.out.println(" Starting Meeus Method One");
