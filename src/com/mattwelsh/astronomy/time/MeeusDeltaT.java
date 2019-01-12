@@ -78,8 +78,6 @@ class MeeusDeltaT implements DeltaTCalculator {
    */
   public double getDeltaT(JulianDate julianDate) {
 
-    System.out.print("Year: " + julianDate.getGregorianCalendar().get(Calendar.YEAR));
-
     if (julianDate.getGregorianCalendar().get(Calendar.YEAR) < 948) {
       return methodOne(julianDate);
     } else if ((julianDate.getGregorianCalendar().get(Calendar.YEAR) >= 948)
