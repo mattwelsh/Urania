@@ -12,6 +12,7 @@
  */
 package com.mattwelsh.util;
 
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import org.junit.Test;
@@ -54,11 +55,11 @@ public class JulianDateTest {
     jdn2 = new JulianDate(1992, 10, 13, 0, 0, 0);
     org.junit.Assert.assertEquals(jdn2.getJulianDayNumber(), 2448908.5, 0);
 
-    jdn2 = new JulianDate(new GregorianCalendar(2000, Calendar.FEBRUARY, 1, 12, 0, 0));
-    org.junit.Assert.assertEquals(jdn2.getJulianDayNumber(), 2451545.0, 0);
-
     jdn2 = new JulianDate(1992, 10, 13, 0, 0, 0);
     org.junit.Assert.assertEquals(jdn2.getJulianDayNumber(), 2448908.5, 0);
+
+    jdn2 = new JulianDate(-122, 1, 1, 0, 0, 0);
+    org.junit.Assert.assertEquals(jdn2.getJulianDayNumber(), 1676497.5, 0);
 
     JulianDate epoch = new JulianDate(2000, 1, 1, 12, 0, 0);
     org.junit.Assert.assertEquals(epoch.getJulianDayNumber(), 2451545.0, 0);
@@ -71,5 +72,58 @@ public class JulianDateTest {
 
     JulianDate jdn2 = new JulianDate(333, 2, 6, 6, 0, 0);
     org.junit.Assert.assertEquals(jdn2.getJulianCenturies(epoch), -16.669, 0.001);
+  }
+
+  @Test
+  public void getFields() throws Exception {
+
+    JulianDate jdn2 = new JulianDate(2000, 1,
+        1, 12, 0, 0);
+    org.junit.Assert.assertEquals(jdn2.getYear(), 2000, 0);
+    org.junit.Assert.assertEquals(jdn2.getMonth(), 1, 0);
+    org.junit.Assert.assertEquals(jdn2.getDayOfMonth(), 1, 0);
+    org.junit.Assert.assertEquals(jdn2.getHour(), 12, 0);
+    org.junit.Assert.assertEquals(jdn2.getMinute(), 0, 0);
+    org.junit.Assert.assertEquals(jdn2.getSecond(), 0, 0);
+
+
+    //If the date falls before Oct. 1, 1582, false otherwise.
+    jdn2 = new JulianDate(1582, 10,
+        1, 0, 0, 0);
+    org.junit.Assert.assertEquals(jdn2.getYear(), 1582, 0);
+    org.junit.Assert.assertEquals(jdn2.getMonth(), 10, 0);
+    org.junit.Assert.assertEquals(jdn2.getDayOfMonth(), 1, 0);
+    org.junit.Assert.assertEquals(jdn2.getHour(), 0, 0);
+    org.junit.Assert.assertEquals(jdn2.getMinute(), 0, 0);
+    org.junit.Assert.assertEquals(jdn2.getSecond(), 0, 0);
+
+    jdn2 = new JulianDate(1582, 11,
+        15, 0, 0, 0);
+    org.junit.Assert.assertEquals(jdn2.getYear(), 1582, 0);
+    org.junit.Assert.assertEquals(jdn2.getMonth(), 11, 0);
+    org.junit.Assert.assertEquals(jdn2.getDayOfMonth(), 15, 0);
+    org.junit.Assert.assertEquals(jdn2.getHour(), 0, 0);
+    org.junit.Assert.assertEquals(jdn2.getMinute(), 0, 0);
+    org.junit.Assert.assertEquals(jdn2.getSecond(), 0, 0);
+
+    jdn2 = new JulianDate(1582, 6,
+        15, 0, 0, 0);
+    org.junit.Assert.assertEquals(jdn2.getYear(), 1582, 0);
+    org.junit.Assert.assertEquals(jdn2.getMonth(), 6, 0);
+    org.junit.Assert.assertEquals(jdn2.getDayOfMonth(), 15, 0);
+    org.junit.Assert.assertEquals(jdn2.getHour(), 0, 0);
+    org.junit.Assert.assertEquals(jdn2.getMinute(), 0, 0);
+    org.junit.Assert.assertEquals(jdn2.getSecond(), 0, 0);
+
+    LocalDateTime dateTime = LocalDateTime.now();
+    jdn2 = new JulianDate();
+    org.junit.Assert.assertEquals(jdn2.getYear(), dateTime.getYear(), 0);
+    org.junit.Assert.assertEquals(jdn2.getMonth(), dateTime.getMonthValue(), 0);
+    org.junit.Assert.assertEquals(jdn2.getDayOfMonth(), dateTime.getDayOfMonth(), 0);
+    org.junit.Assert.assertEquals(jdn2.getHour(), dateTime.getHour(), 0);
+    org.junit.Assert.assertEquals(jdn2.getMinute(), dateTime.getMinute(), 0);
+
+
+
   }
 }

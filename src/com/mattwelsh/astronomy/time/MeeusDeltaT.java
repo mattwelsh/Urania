@@ -78,19 +78,16 @@ class MeeusDeltaT implements DeltaTCalculator {
    */
   public double getDeltaT(JulianDate julianDate) {
 
-    if (julianDate.getGregorianCalendar().get(Calendar.YEAR) < 948) {
+    if (julianDate.getYear() < 948) {
       return methodOne(julianDate);
-    } else if ((julianDate.getGregorianCalendar().get(Calendar.YEAR) >= 948)
-        && (julianDate.getGregorianCalendar().get(Calendar.YEAR) < 1620)) {
+    } else if ((julianDate.getYear() >= 948) && (julianDate.getYear() < 1620)) {
       return methodTwo(julianDate);
-    } else if ((julianDate.getGregorianCalendar().get(Calendar.YEAR) >= 1620)
-        && (julianDate.getGregorianCalendar().get(Calendar.YEAR) < 2000)) {
+    } else if ((julianDate.getYear() >= 1620) && (julianDate.getYear() < 2000)) {
       return methodThree(julianDate);
-    } else if ((julianDate.getGregorianCalendar().get(Calendar.YEAR) >= 2000)
-        && (julianDate.getGregorianCalendar().get(Calendar.YEAR) < 2100)) {
+    } else if ((julianDate.getYear() >= 2000) && (julianDate.getYear() < 2100)) {
       return methodFour(julianDate);
     } else {
-      return methodTwo(julianDate);
+      return (DynamicalTime.DEFAULT.getCalculator().getDeltaT(julianDate));
     }
   }
 
@@ -99,22 +96,17 @@ class MeeusDeltaT implements DeltaTCalculator {
   // -----------------------------------------------------------------------------------------------
 
   private double methodOne(JulianDate julianDate) {
-    System.out.println(" Starting Meeus Method One");
     double t = julianDate.getJulianCenturies(DeltaTCalculator.EPOCH2000);
-    System.out.println("Julian Centuries: " + t);
     return (2177.0 + 497.0 * t + 44.1 * t * t);
   }
 
   private double methodTwo(JulianDate julianDate) {
-    System.out.println(" Starting Meeus Method Two");
     double t = julianDate.getJulianCenturies(DeltaTCalculator.EPOCH2000);
-    System.out.println("Julian Centuries: " + t);
     return (102.0 + 102.0 * t + 25.3 * t * t);
   }
 
   private double methodThree(JulianDate julianDate) {
-    System.out.println(" Starting Meeus Method Three");
-    return methodThreeData[julianDate.getGregorianCalendar().get(Calendar.YEAR) - dataTableOffset];
+    return methodThreeData[julianDate.getYear() - dataTableOffset];
   }
 
   private double methodFour(JulianDate julianDate) {
@@ -122,6 +114,6 @@ class MeeusDeltaT implements DeltaTCalculator {
     double t = julianDate.getJulianCenturies(DeltaTCalculator.EPOCH2000);
 
     return (102.0 + 102.0 * t + 25.3 * t * t + 0.37 *
-        (julianDate.getGregorianCalendar().get(Calendar.YEAR) - 2100));
+        (julianDate.getYear() - 2100));
   }
 }

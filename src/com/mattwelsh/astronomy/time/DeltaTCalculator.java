@@ -22,7 +22,17 @@ import com.mattwelsh.util.JulianDate;
  */
 public interface DeltaTCalculator {
 
-   JulianDate EPOCH2000 = new JulianDate(2000, 1, 1, 12, 0, 0);
+  JulianDate EPOCH2000 = new JulianDate(2000, 1, 1, 12, 0, 0);
+  JulianDate EPOCH1000 = new JulianDate(1000, 1, 1, 12, 0, 0);
+  JulianDate EPOCH1600 = new JulianDate(1600, 1, 1, 12, 0, 0);
+  JulianDate EPOCH1700 = new JulianDate(1700, 1, 1, 12, 0, 0);
+  JulianDate EPOCH1800 = new JulianDate(1800, 1, 1, 12, 0, 0);
+  JulianDate EPOCH1860 = new JulianDate(1860, 1, 1, 12, 0, 0);
+  JulianDate EPOCH1900 = new JulianDate(1900, 1, 1, 12, 0, 0);
+  JulianDate EPOCH1920 = new JulianDate(1920, 1, 1, 12, 0, 0);
+  JulianDate EPOCH1950 = new JulianDate(1950, 1, 1, 12, 0, 0);
+  JulianDate EPOCH1975 = new JulianDate(1975, 1, 1, 12, 0, 0);
+  JulianDate EPOCH1820 = new JulianDate(1820, 1, 1, 12, 0, 0);
 
   /**
    * Return an approximation of the delta in seconds between Dynamical Time (TD) and Universal Time

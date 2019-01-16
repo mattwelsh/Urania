@@ -13,6 +13,7 @@
 package com.mattwelsh.astronomy.time;
 
 import com.mattwelsh.util.JulianDate;
+import java.util.Calendar;
 
 /**
  * An implementation of DeltaTCalculator that calculates an approximation of the delta in seconds
@@ -24,7 +25,7 @@ class ChaprontDeltaT implements DeltaTCalculator {
   /**
    * Return an approximation of the delta in seconds between Dynamical Time(TD) and Universal
    * Time(UT) using the method described by Chapront-Touze & Chapront (1991) in Lunar Tables and
-   * Programs From 4000B.C. to A.D. 8000. Currently a placeholder.
+   * Programs From 4000B.C. to A.D. 8000.
    *
    *
    * @param julianDate The date to calculate delta T for.
@@ -32,6 +33,18 @@ class ChaprontDeltaT implements DeltaTCalculator {
    *     Universal Time * (UT)
    */
   public double getDeltaT(JulianDate julianDate) {
-    return 0;
+
+    double t = julianDate.getJulianCenturies(DeltaTCalculator.EPOCH2000);
+
+    if( (julianDate.getYear()  < 948)  && (julianDate.getYear()  > -391) ) {
+      return 2177.0 + (495 * t) + (42.4 * t * t);
+    }
+    else if ( (julianDate.getYear()  < 1600)  && (julianDate.getYear()  > 948) ) {
+      return 102.0 + (100 * t) + (23.6 * t * t);
+    }
+    else {
+      return (DynamicalTime.DEFAULT.getCalculator().getDeltaT(julianDate));
+    }
   }
 }
+

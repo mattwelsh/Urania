@@ -13,32 +13,34 @@
 package com.mattwelsh.astronomy.time;
 
 import com.mattwelsh.util.JulianDate;
+import java.util.Calendar;
 
 /**
  * An implementation of DeltaTCalculator that calculates an approximation of the delta in seconds
- * between Dynamical Time(TD) and Universal Time(UT) for the time period 2000 B.C. - A.D. 1700
- * using the method described by Borkowski.
+ * between Dynamical Time(TD) and Universal Time(UT) for the time period A.D. 1950 - A.D. 2100 using
+ * the method described by Espenak (1987, 1989).
  *
- * deltaT(seconds) = 35.0 (t + 3.75)^2 +40,
+ * <p>deltaT(seconds) = 67.0 + 61.0t + 64.3t^2,
  *
- * where t is time in JulianCenturies elapsed from epoch 2000.0 JC = (JD - 2451545.0) / 36525
- *
- * See (http://articles.adsabs.harvard.edu/cgi-bin/nph-iarticle_query?letter=L&classic=YES&bibcode=1988A%26A...205L...8B&page=&type=SCREEN_VIEW&data_type=PDF_HIGH&send=GET&filetype=.pdf).
+ * <p>where t is time in JulianCenturies elapsed from epoch 2000.0 JC = (JD - 2451545.0) / 36525
  */
-public class BorkowskiDeltaT implements DeltaTCalculator {
+public class EspenakDeltaT implements DeltaTCalculator {
 
   /**
    * Return an approximation of the delta in seconds between Dynamical Time(TD) and Universal
-   * Time(UT) using the method described by Borkowski (1988).
+   * Time(UT) using the method described by Espenak (1987, 1989).
    *
-   *
-   * @param julianDate @return Return an approximation of the delta in seconds between Dynamical Time (TD) and
-   *     Universal Time * (UT)
+   * @param julianDate @return Return an approximation of the delta in seconds between Dynamical
+   *     Time (TD) and Universal Time * (UT)
    */
   @Override
   public double getDeltaT(JulianDate julianDate) {
     double t = julianDate.getJulianCenturies(DeltaTCalculator.EPOCH2000);
-    double result = (t + 3.75) * (t + 3.75);
-    return (35 * result + 40);
+    if ((julianDate.getYear() >= 1950) && (julianDate.getYear()) < 2100) {
+      return 67.0 + (61.0 * t) + (64.3 * t * t);
+    }
+    else {
+      return (DynamicalTime.DEFAULT.getCalculator().getDeltaT(julianDate));
+    }
   }
 }

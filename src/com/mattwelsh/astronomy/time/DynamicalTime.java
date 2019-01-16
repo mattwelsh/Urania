@@ -25,6 +25,21 @@ package com.mattwelsh.astronomy.time;
 public enum DynamicalTime {
 
   /**
+   * Create a calculator that will use the Espenak & Meeus (2006) method of computation.
+   */
+  DEFAULT {public DeltaTCalculator getCalculator() { return new EspenakMeeusDeltaT();}},
+
+  /**
+   * Create a calculator that will use the Espenak & Meeus (2006) method of computation.
+   */
+  ESPENAKMEEUS {public DeltaTCalculator getCalculator() { return new EspenakMeeusDeltaT();}},
+
+  /**
+   * Create a calculator that will use the Espenak (1987, 1989) method of computation.
+   */
+  ESPENAK {public DeltaTCalculator getCalculator() { return new EspenakDeltaT();}},
+
+  /**
    * Create a calculator that will use the Meeus (1998) method of computation.
    */
   MEEUS {public DeltaTCalculator getCalculator() { return new MeeusDeltaT();}},
