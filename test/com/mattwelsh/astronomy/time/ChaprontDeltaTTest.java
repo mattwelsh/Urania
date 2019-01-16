@@ -51,7 +51,5 @@ public class ChaprontDeltaTTest {
     jd1 = new JulianDate(1991, 0, 0, 12, 0, 0);
     org.junit.Assert.assertEquals(calc.getDeltaT(jd1), 57.5, 0.9);
 
-
-
   }
 }

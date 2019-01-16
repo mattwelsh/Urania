@@ -46,7 +46,6 @@ class ChaprontDeltaT implements DeltaTCalculator {
       49.0, 50.0, 51.0, 51.0, 52.0, 53.0, 54.0, 54.0, 55.0, 55.0, 56.0, 56.0, 57.0
   };
 
-
   /**
    * Return an approximation of the delta in seconds between Dynamical Time(TD) and Universal
    * Time(UT) using the method described by Chapront-Touze & Chapront (1991) in Lunar Tables and

@@ -37,7 +37,12 @@ public class BorkowskiDeltaT implements DeltaTCalculator {
   @Override
   public double getDeltaT(JulianDate julianDate) {
     double t = julianDate.getJulianCenturies(DeltaTCalculator.EPOCH2000);
-    double result = (t + 3.75) * (t + 3.75);
-    return (35 * result + 40);
+    if ((julianDate.getYear() >= -2000) && (julianDate.getYear()) < 1700) {
+      double result = (t + 3.75) * (t + 3.75);
+      return (35 * result + 40);
+    }
+    else {
+      return (DynamicalTime.DEFAULT.getCalculator().getDeltaT(julianDate));
+    }
   }
 }
