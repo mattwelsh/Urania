@@ -13,7 +13,6 @@
 package com.mattwelsh.astronomy.time;
 
 import com.mattwelsh.util.JulianDate;
-import java.util.Calendar;
 
 /**
  * An implementation of DeltaTCalculator that calculates an approximation of the delta in seconds

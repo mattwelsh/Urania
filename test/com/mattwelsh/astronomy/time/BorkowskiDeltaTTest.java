@@ -13,7 +13,6 @@
 
 package com.mattwelsh.astronomy.time;
 
-import static org.junit.Assert.*;
 
 import com.mattwelsh.util.JulianDate;
 import org.junit.Test;
