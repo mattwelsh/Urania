@@ -33,6 +33,7 @@ import com.mattwelsh.util.JulianDate;
  * fall through to this implementation when dates fall outside the range of dates that they can
  * meaningfully compute delta T for.
  *
+ * <p> See http://www.eclipsewise.com/help/deltatpoly2014.html for more information</p>
  * <p> See https://www.staff.science.uu.nl/~gent0113/deltat/deltat_old.htm for more information</p>
  */
 class EspenakMeeusDeltaT implements DeltaTCalculator {
@@ -200,7 +201,7 @@ class EspenakMeeusDeltaT implements DeltaTCalculator {
    */
   private double period07(JulianDate julianDate) {
     double t = julianDate.getJulianCenturies(DeltaTCalculator.EPOCH1900);
-    return 2.79 + (149.4119 * t) - (598.939 * t * t) + (6196.6 * t * t * t) -
+    return -2.79 + (149.4119 * t) - (598.939 * t * t) + (6196.6 * t * t * t) -
         (19700.0 * t * t * t * t);
   }
 
