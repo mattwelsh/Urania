@@ -110,7 +110,6 @@ class MeeusDeltaT implements DeltaTCalculator {
   private double methodFour(JulianDate julianDate) {
 
     double t = julianDate.getJulianCenturies(DeltaTCalculator.EPOCH2000);
-
     return (102.0 + 102.0 * t + 25.3 * t * t + 0.37 *
         (julianDate.getYear() - 2100));
   }

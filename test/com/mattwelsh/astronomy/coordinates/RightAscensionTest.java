@@ -11,9 +11,6 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 package com.mattwelsh.astronomy.coordinates;
-
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class RightAscensionTest {

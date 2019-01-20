@@ -24,7 +24,7 @@ import com.mattwelsh.util.JulianDate;
  *
  * See (http://articles.adsabs.harvard.edu/cgi-bin/nph-iarticle_query?letter=L&classic=YES&bibcode=1988A%26A...205L...8B&page=&type=SCREEN_VIEW&data_type=PDF_HIGH&send=GET&filetype=.pdf).
  */
-public class BorkowskiDeltaT implements DeltaTCalculator {
+class BorkowskiDeltaT implements DeltaTCalculator {
 
   /**
    * Return an approximation of the delta in seconds between Dynamical Time(TD) and Universal

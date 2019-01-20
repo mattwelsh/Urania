@@ -11,7 +11,6 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 package com.mattwelsh.astronomy.time;
-
 import com.mattwelsh.util.JulianDate;
 
 /**
@@ -23,7 +22,7 @@ import com.mattwelsh.util.JulianDate;
  *
  * <p>Where t is time in JulianCenturies elapsed from epoch 2000.0 JC = (JD - 2451545.0) / 36525
  */
-public class EspenakDeltaT implements DeltaTCalculator {
+class EspenakDeltaT implements DeltaTCalculator {
 
   /**
    * Return an approximation of the delta in seconds between Dynamical Time(TD) and Universal

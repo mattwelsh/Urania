@@ -11,7 +11,6 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 package com.mattwelsh.astronomy.time;
-
 import com.mattwelsh.util.JulianDate;
 
 /**
@@ -91,15 +90,12 @@ class EspenakMeeusDeltaT implements DeltaTCalculator {
     }
     else if ( (julianDate.getYear()  < 2005)  && (julianDate.getYear()  >= 1986) ) {
       return period11(julianDate);
-
     }
     else if ( (julianDate.getYear()  < 2050)  && (julianDate.getYear()  >= 2005) ) {
       return period12(julianDate);
-
     }
     else if ( (julianDate.getYear()  < 2150)  && (julianDate.getYear()  >= 2050) ) {
       return period13(julianDate);
-
     }
     else {
       return period14(julianDate);
@@ -188,7 +184,6 @@ class EspenakMeeusDeltaT implements DeltaTCalculator {
    */
   private double period06(JulianDate julianDate) {
     double t = julianDate.getJulianCenturies(DeltaTCalculator.EPOCH1860);
-
     return 7.62 + (57.37 * t) - (2517.54 *t * t) + (16806.68 * t * t * t) -
         (44736.24 * t * t * t * t) + ((t * t * t * t * t)/0.0000233174);
   }
