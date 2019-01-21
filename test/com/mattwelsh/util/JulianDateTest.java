@@ -11,10 +11,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 package com.mattwelsh.util;
-
 import java.time.LocalDateTime;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import org.junit.Test;
 
 /**
