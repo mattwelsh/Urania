@@ -123,7 +123,68 @@ public class JulianDateTest {
     org.junit.Assert.assertEquals(jdn2.getHour(), dateTime.getHour(), 0);
     org.junit.Assert.assertEquals(jdn2.getMinute(), dateTime.getMinute(), 0);
 
+    jdn2 = new JulianDate(2026871.8168055555);
+    org.junit.Assert.assertEquals(jdn2.getMonth(), 4, 0);
+    org.junit.Assert.assertEquals(jdn2.getDayOfMonth(), 10, 0);
+    org.junit.Assert.assertEquals(jdn2.getYear(), 837, 0);
+    org.junit.Assert.assertEquals(jdn2.getHour(), 7, 0);
+    org.junit.Assert.assertEquals(jdn2.getMinute(), 36, 0);
+    org.junit.Assert.assertEquals(jdn2.getSecond(), 12, 1);
 
+    jdn2 = new JulianDate(4500.392100368987923);
+    JulianDate jdn3 = new JulianDate(jdn2.getYear(), jdn2.getMonth(), jdn2.getDayOfMonth(),
+        jdn2.getHour(), jdn2.getMinute(), jdn2.getSecond());
+
+    org.junit.Assert.assertEquals(jdn3.getYear(), jdn2.getYear(), 0);
+    org.junit.Assert.assertEquals(jdn3.getMonth(), jdn2.getMonth(), 0);
+    org.junit.Assert.assertEquals(jdn3.getDayOfMonth(), jdn2.getDayOfMonth(), 0);
+    org.junit.Assert.assertEquals(jdn3.getHour(), jdn2.getHour(), 0);
+    org.junit.Assert.assertEquals(jdn3.getMinute(), jdn2.getMinute(), 0);
+    org.junit.Assert.assertEquals(jdn3.getSecond(), jdn2.getSecond(), 0);
+
+    jdn2 = new JulianDate(10000.9812657123);
+    jdn3 = new JulianDate(jdn2.getYear(), jdn2.getMonth(), jdn2.getDayOfMonth(),
+        jdn2.getHour(), jdn2.getMinute(), jdn2.getSecond());
+
+    org.junit.Assert.assertEquals(jdn3.getYear(), jdn2.getYear(), 0);
+    org.junit.Assert.assertEquals(jdn3.getMonth(), jdn2.getMonth(), 0);
+    org.junit.Assert.assertEquals(jdn3.getDayOfMonth(), jdn2.getDayOfMonth(), 0);
+    org.junit.Assert.assertEquals(jdn3.getHour(), jdn2.getHour(), 0);
+    org.junit.Assert.assertEquals(jdn3.getMinute(), jdn2.getMinute(), 0);
+    org.junit.Assert.assertEquals(jdn3.getSecond(), jdn2.getSecond(), 0);
+
+    jdn2 = new JulianDate(20000.02875612);
+    jdn3 = new JulianDate(jdn2.getYear(), jdn2.getMonth(), jdn2.getDayOfMonth(),
+        jdn2.getHour(), jdn2.getMinute(), jdn2.getSecond());
+
+    org.junit.Assert.assertEquals(jdn3.getYear(), jdn2.getYear(), 0);
+    org.junit.Assert.assertEquals(jdn3.getMonth(), jdn2.getMonth(), 0);
+    org.junit.Assert.assertEquals(jdn3.getDayOfMonth(), jdn2.getDayOfMonth(), 0);
+    org.junit.Assert.assertEquals(jdn3.getHour(), jdn2.getHour(), 0);
+    org.junit.Assert.assertEquals(jdn3.getMinute(), jdn2.getMinute(), 0);
+    org.junit.Assert.assertEquals(jdn3.getSecond(), jdn2.getSecond(), 0);
+
+    jdn2 = new JulianDate(30000.569998);
+    jdn3 = new JulianDate(jdn2.getYear(), jdn2.getMonth(), jdn2.getDayOfMonth(),
+        jdn2.getHour(), jdn2.getMinute(), jdn2.getSecond());
+
+    org.junit.Assert.assertEquals(jdn3.getYear(), jdn2.getYear(), 0);
+    org.junit.Assert.assertEquals(jdn3.getMonth(), jdn2.getMonth(), 0);
+    org.junit.Assert.assertEquals(jdn3.getDayOfMonth(), jdn2.getDayOfMonth(), 0);
+    org.junit.Assert.assertEquals(jdn3.getHour(), jdn2.getHour(), 0);
+    org.junit.Assert.assertEquals(jdn3.getMinute(), jdn2.getMinute(), 0);
+    org.junit.Assert.assertEquals(jdn3.getSecond(), jdn2.getSecond(), 0);
+
+    jdn2 = new JulianDate(2299177.98567234);
+    jdn3 = new JulianDate(jdn2.getYear(), jdn2.getMonth(), jdn2.getDayOfMonth(),
+        jdn2.getHour(), jdn2.getMinute(), jdn2.getSecond());
+
+    org.junit.Assert.assertEquals(jdn3.getYear(), jdn2.getYear(), 0);
+    org.junit.Assert.assertEquals(jdn3.getMonth(), jdn2.getMonth(), 0);
+    org.junit.Assert.assertEquals(jdn3.getDayOfMonth(), jdn2.getDayOfMonth(), 0);
+    org.junit.Assert.assertEquals(jdn3.getHour(), jdn2.getHour(), 0);
+    org.junit.Assert.assertEquals(jdn3.getMinute(), jdn2.getMinute(), 0);
+    org.junit.Assert.assertEquals(jdn3.getSecond(), jdn2.getSecond(), 0);
 
   }
 }

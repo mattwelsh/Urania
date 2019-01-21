@@ -66,6 +66,17 @@ public class JulianDate {
   }
 
   /**
+   * Create an instance of JulianDate set to the julianDayNumber specified. This constructor only
+   * works for non-negative values.
+   *
+   * @param julianDayNumber The julianDayNumber to use to create the JulianDate.
+   */
+  public JulianDate(double julianDayNumber) {
+    this.julianDayNumber = julianDayNumber;
+    computeCalendarDate();
+  }
+
+  /**
    * Return the Julian Day Number for the date represented in this object.
    *
    * @return The Julian Day Number for the date represented in this object.
@@ -141,6 +152,46 @@ public class JulianDate {
   // -----------------------------------------------------------------------------------------------
   // Protected and private methods
   // -----------------------------------------------------------------------------------------------
+
+  private void computeCalendarDate() {
+    double jd = this.julianDayNumber + 0.5;
+
+    long intPart = (long)jd;
+    double fracPart = jd - intPart;
+    long a;
+    if (intPart < 2299161) {
+      a = intPart;
+    } else {
+      long alpha = (long)((intPart - 1867216.25) / 36524.25);
+      a = intPart + 1 + alpha - (long)(alpha / 4);
+    }
+
+    long b = a + 1524;
+    long c = (long)((b - 122.1) / 365.25);
+    long d = (long)(365.25 * c);
+    long e = (long)((b - d) / 30.6001);
+    this.dayOfMonth = (int)(b - d- (long)(30.6001 * e));
+
+    if(e < 14) {
+      this.month = (int)(e - 1);
+    } else {
+      this.month = (int)(e - 13);
+    }
+
+    if(this.month > 2) {
+      this.year = (int)(c - 4716);
+    } else {
+      this.year = (int)(c - 4715);
+    }
+
+    double decimalHours = fracPart * 24;
+    this.hour = (int)decimalHours;
+    double decimalMinutes = (decimalHours - this.hour) * 60;
+    this.minute = (int)decimalMinutes;
+    double decimalSeconds = decimalMinutes - this.minute;
+    this.second = (int)(decimalSeconds * 60);
+
+  }
 
   private void computeJulianDayNumber() {
     int B;
