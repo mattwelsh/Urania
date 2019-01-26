@@ -1,6 +1,5 @@
 package com.mattwelsh.astronomy.observer;
 
-
 import org.junit.Before;
 import org.junit.Test;
 
