@@ -11,7 +11,6 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 package com.mattwelsh.astronomy.time;
-import com.mattwelsh.util.JulianDate;
 
 /**
  * An implementation of DeltaTCalculator that calculates an approximation of the delta in seconds

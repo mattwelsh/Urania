@@ -12,7 +12,6 @@
  */
 package com.mattwelsh.astronomy.time;
 
-import com.mattwelsh.util.JulianDate;
 import org.junit.Test;
 
 /**

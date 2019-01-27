@@ -10,9 +10,16 @@
  * Lesser General Public License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
-package com.mattwelsh.util;
+package com.mattwelsh.astronomy.time;
 import org.junit.Test;
 
+/**
+ * Unit tests for GreenwichSiderealTimeTest
+ *
+ * @author Matt Welsh
+ * @version 1.0
+ * @since 1.0
+ */
 public class GreenwichSiderealTimeTest {
 
   @Test
@@ -27,8 +34,6 @@ public class GreenwichSiderealTimeTest {
         128.7378734, 0.001);
     org.junit.Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeDecimalHours(),
         8.58252489, 0.001);
-
-
 
     jdn2 = new JulianDate(1987, 4, 10, 0, 0, 0);
     org.junit.Assert.assertEquals(jdn2.getJulianDayNumber(), 2446895.5, 0);
