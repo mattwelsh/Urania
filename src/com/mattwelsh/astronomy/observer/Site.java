@@ -134,7 +134,6 @@ public class Site {
                   * polarOverEquatorial
                   * Math.tan(Math.toRadians(this.geographicalLatitude))));
     }
-    System.out.println(this.geocentricLatitude);
 
     double u = Math.atan(polarOverEquatorial *
         Math.tan(Math.toRadians(this.geographicalLatitude)));
