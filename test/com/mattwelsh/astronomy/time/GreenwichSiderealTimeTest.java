@@ -48,6 +48,14 @@ public class GreenwichSiderealTimeTest {
     org.junit.Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeSecond(),
         46, 0.0);
 
+    jdn2 = new JulianDate(1978, 11, 13, 4, 34, 0);
+    greenwichSiderealTime = new GreenwichSiderealTime(jdn2);
 
+    org.junit.Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeHour(),
+        8, 0.0);
+    org.junit.Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeMinute(),
+        01, 0.0);
+    org.junit.Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeSecond(),
+        46, 0.0);
   }
 }
