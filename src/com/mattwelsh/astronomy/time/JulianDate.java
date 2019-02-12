@@ -17,7 +17,8 @@ import java.time.LocalDateTime;
  * This class represents a Julian Day Number, the number assigned to a solar day in the Julian day
  * count starting from noon Greenwich Mean Time, with Julian day number 0 assigned to the day
  * starting at noon on January 1, 4713 BC on the Julian calendar (November 24, 4714 BC, in the
- * Gregorian calendar).
+ * Gregorian calendar). It is immutable, so if you need a JulianDate that you can change, see the
+ * subclass of this class, MutableJulianDayNumber.
  *
  * @author Matt Welsh (mitya.welsh@gmail.com)
  * @version 1.1
@@ -25,13 +26,13 @@ import java.time.LocalDateTime;
  */
 public class JulianDate {
 
-  private double julianDayNumber;
-  private int year;
-  private int month;
-  private int dayOfMonth;
-  private int hour;
-  private int minute;
-  private int second;
+  protected double julianDayNumber;
+  protected int year;
+  protected int month;
+  protected int dayOfMonth;
+  protected int hour;
+  protected int minute;
+  protected int second;
 
   /** Create an instance of JulianDate for the current system time. */
   public JulianDate() {
@@ -153,7 +154,7 @@ public class JulianDate {
   // Protected and private methods
   // -----------------------------------------------------------------------------------------------
 
-  private void computeCalendarDate() {
+  protected void computeCalendarDate() {
     double jd = this.julianDayNumber + 0.5;
 
     long intPart = (long)jd;
@@ -193,7 +194,7 @@ public class JulianDate {
 
   }
 
-  private void computeJulianDayNumber() {
+  protected void computeJulianDayNumber() {
     int B;
     double C;
     int y;
