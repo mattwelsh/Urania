@@ -73,12 +73,13 @@ public class RightAscension extends Coordinate {
   // ------------------------------------------------------------------------------------------------
 
   protected void reduceToRange() {
-    while (decimalDegrees > 360.0) {
-      decimalDegrees -= 360.0;
+    if(decimalDegrees > 360.0) {
+      decimalDegrees = decimalDegrees - 360.0 * ((long)(decimalDegrees/360.0));
     }
 
-    while (decimalDegrees < 0.0) {
-      decimalDegrees += 360.0;
+    if(decimalDegrees < 0.0) {
+      decimalDegrees = decimalDegrees + 360.0 * ((long)Math.abs(decimalDegrees/360.0) + 1);
     }
+
   }
 }

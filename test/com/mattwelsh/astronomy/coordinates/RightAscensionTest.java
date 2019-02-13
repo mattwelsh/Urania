@@ -23,6 +23,9 @@ public class RightAscensionTest {
     org.junit.Assert.assertEquals(coord1.getHour(), 3);
     org.junit.Assert.assertEquals(coord1.getDecimalDegrees(), 45.0, 0.0);
 
+    coord1.setDecimalDegrees(700.0);
+    org.junit.Assert.assertEquals(coord1.getDecimalDegrees(), 340.0, 0.0);
+
     coord1.setDecimalDegrees(225.0);
     org.junit.Assert.assertEquals(coord1.getHour(), 15);
     org.junit.Assert.assertEquals(coord1.getDecimalDegrees(), 225.0, 0.0);
@@ -35,7 +38,15 @@ public class RightAscensionTest {
     org.junit.Assert.assertEquals(coord1.getHour(), 12);
     org.junit.Assert.assertEquals(coord1.getDecimalDegrees(), 180.0, 0.0);
 
+    coord1.setDecimalDegrees(-90.0);
+    org.junit.Assert.assertEquals(coord1.getDecimalDegrees(), 270.0, 0.0);
 
+    coord1.setDecimalDegrees(-200.0);
+    org.junit.Assert.assertEquals(coord1.getDecimalDegrees(), 160.0, 0.0);
+
+    coord1.setDecimalDegrees(-900.0);
+    org.junit.Assert.assertEquals(coord1.getHour(), 12);
+    org.junit.Assert.assertEquals(coord1.getDecimalDegrees(), 180.0, 0.0);
   }
 
   @Test
