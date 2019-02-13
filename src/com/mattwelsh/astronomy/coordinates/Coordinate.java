@@ -19,11 +19,12 @@ package com.mattwelsh.astronomy.coordinates;
  *
  * <p>Subclasses of this class must implement the reduceToRange() method which ensures the value of
  * the angle represented by the coordinate falls within the correct range, which can vary between
- * implementations. For example, right ascension is usually expressed in hour, minutes, and
- * seconds, which in turn are within the range 0-360 degrees, while declination has a valid range
- * between -90 and 90.
+ * implementations. For example, right ascension is usually expressed in hour, minutes, and seconds,
+ * which in turn are within the range 0-360 degrees, while declination has a valid range between -90
+ * and 90.
  *
- * This class doesn't implement any setters because some subclasses may be designed to be immutable.
+ * <p>This class doesn't implement any setters because some subclasses may be designed to be
+ * immutable.
  *
  * @author Matt Welsh (mitya.welsh@gmail.com)
  * @version 1.0
@@ -99,9 +100,9 @@ public abstract class Coordinate {
   /**
    * Subclasses should implement this method to ensure the value of the angle represented by the
    * coordinate falls within the correct range. For example, right ascension is usually expressed in
-   * hour, minutes, and seconds, which in turn are within the range 0-360 degrees, while
-   * declination has a valid range * between -90 and 90. Some subclasses may choose to do nothing if
-   * the range for the value being expressed doesn't matter.
+   * hour, minutes, and seconds, which in turn are within the range 0-360 degrees, while declination
+   * has a valid range * between -90 and 90. Some subclasses may choose to do nothing if the range
+   * for the value being expressed doesn't matter.
    */
   protected abstract void reduceToRange();
 

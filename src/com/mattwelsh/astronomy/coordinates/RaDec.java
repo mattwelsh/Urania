@@ -36,6 +36,7 @@ public class RaDec {
 
   /**
    * Returns the right ascension coordinate.
+   *
    * @return The right ascension coordinate.
    */
   public RightAscension getRightAscension() {
@@ -44,6 +45,7 @@ public class RaDec {
 
   /**
    * Returns the declination coordinate.
+   *
    * @return The declination coordinate.
    */
   public Declination getDeclination() {
