@@ -37,7 +37,6 @@ public class EspenakMeeusDeltaTTest {
     jd1 = new JulianDate(250, 1, 1, 12, 0, 0);
     org.junit.Assert.assertEquals(calc.getDeltaT(jd1), 8163.063848, 4.0);
 
-
     jd1 = new JulianDate(700, 1, 1, 12, 0, 0);
     org.junit.Assert.assertEquals(calc.getDeltaT(jd1), 3813.150140, 4.0);
 
@@ -76,9 +75,6 @@ public class EspenakMeeusDeltaTTest {
 
     jd1 = new JulianDate(2200, 1, 1, 12, 0, 0);
     org.junit.Assert.assertEquals(calc.getDeltaT(jd1), 442.08, 1.0);
-
-
-
 
 
   }

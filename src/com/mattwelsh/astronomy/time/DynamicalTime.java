@@ -64,9 +64,9 @@ public enum DynamicalTime {
   public abstract DeltaTCalculator getCalculator();
 
   // -----------------------------------------------------------------------------------------------
-  // Protected and private methods
+  // Protected, private, and package local methods
   // -----------------------------------------------------------------------------------------------
 
-  private DynamicalTime() {}
+  DynamicalTime() {}
 
 }
