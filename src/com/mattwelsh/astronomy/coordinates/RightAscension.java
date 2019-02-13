@@ -80,6 +80,5 @@ public class RightAscension extends Coordinate {
     while (decimalDegrees < 0.0) {
       decimalDegrees += 360.0;
     }
-    System.out.println("reduced to " + decimalDegrees);
   }
 }
