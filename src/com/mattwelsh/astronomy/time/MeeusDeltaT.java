@@ -15,6 +15,10 @@ package com.mattwelsh.astronomy.time;
 /**
  * An implementation of DeltaTCalculator that calculates an approximation of the delta in seconds
  * between Dynamical Time(TD) and Universal Time(UT) using the method described by J. Meeus (1998).
+ *
+ * @author Matt Welsh (mitya.welsh@gmail.com)
+ * @version 1.0
+ * @since 1.0
  */
 class MeeusDeltaT implements DeltaTCalculator {
 

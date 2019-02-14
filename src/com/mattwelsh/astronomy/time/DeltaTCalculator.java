@@ -17,6 +17,10 @@ package com.mattwelsh.astronomy.time;
  * implementations, varying from simply looking the value up in a table, to approximating the value
  * using one of the many algorithms available. This design is to make the system flexible when new
  * methods are defined.
+ *
+ * @author Matt Welsh (mitya.welsh@gmail.com)
+ * @version 1.0
+ * @since 1.0
  */
 public interface DeltaTCalculator {
 

@@ -33,6 +33,10 @@ package com.mattwelsh.astronomy.time;
  *
  * <p> See http://www.eclipsewise.com/help/deltatpoly2014.html for more information</p>
  * <p> See https://www.staff.science.uu.nl/~gent0113/deltat/deltat_old.htm for more information</p>
+ *
+ * @author Matt Welsh (mitya.welsh@gmail.com)
+ * @version 1.0
+ * @since 1.0
  */
 class EspenakMeeusDeltaT implements DeltaTCalculator {
 

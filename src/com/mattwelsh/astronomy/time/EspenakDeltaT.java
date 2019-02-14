@@ -20,6 +20,10 @@ package com.mattwelsh.astronomy.time;
  * <p>deltaT(seconds) = 67.0 + 61.0t + 64.3t^2,
  *
  * <p>Where t is time in JulianCenturies elapsed from epoch 2000.0 JC = (JD - 2451545.0) / 36525
+ *
+ * @author Matt Welsh (mitya.welsh@gmail.com)
+ * @version 1.0
+ * @since 1.0
  */
 class EspenakDeltaT implements DeltaTCalculator {
 

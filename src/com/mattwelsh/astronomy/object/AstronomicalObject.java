@@ -26,6 +26,8 @@ import com.mattwelsh.astronomy.coordinates.RaDec;
  * into account the observers location to compute things like parallax.
  *
  * @author Matt Welsh (matt@matt-welsh.com)
+ * @version 1.0
+ * @since 1.0
  */
 public interface AstronomicalObject {
 

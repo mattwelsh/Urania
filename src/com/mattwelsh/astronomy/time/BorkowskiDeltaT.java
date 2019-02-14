@@ -22,6 +22,10 @@ package com.mattwelsh.astronomy.time;
  * where t is time in JulianCenturies elapsed from epoch 2000.0 JC = (JD - 2451545.0) / 36525
  *
  * See (http://articles.adsabs.harvard.edu/cgi-bin/nph-iarticle_query?letter=L&classic=YES&bibcode=1988A%26A...205L...8B&page=&type=SCREEN_VIEW&data_type=PDF_HIGH&send=GET&filetype=.pdf).
+ *
+ * @author Matt Welsh (mitya.welsh@gmail.com)
+ * @version 1.0
+ * @since 1.0
  */
 class BorkowskiDeltaT implements DeltaTCalculator {
 

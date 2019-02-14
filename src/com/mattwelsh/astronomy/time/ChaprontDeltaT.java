@@ -16,6 +16,10 @@ package com.mattwelsh.astronomy.time;
  * An implementation of DeltaTCalculator that calculates an approximation of the delta in seconds
  * between Dynamical Time(TD) and Universal Time(UT) using the method described by Chapront-Touze &
  * Chapront (1991) in Lunar Tables and Programs From 4000B.C. to A.D. 8000.
+ *
+ * @author Matt Welsh (mitya.welsh@gmail.com)
+ * @version 1.0
+ * @since 1.0
  */
 class ChaprontDeltaT implements DeltaTCalculator {
 
