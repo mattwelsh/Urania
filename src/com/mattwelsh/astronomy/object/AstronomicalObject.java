@@ -25,7 +25,7 @@ import com.mattwelsh.astronomy.coordinates.RaDec;
  * <p>Likewise, if the object is close to earth astronomically speaking, the calculation make take
  * into account the observers location to compute things like parallax.
  *
- * @author Matt Welsh (matt@matt-welsh.com)
+ * @author Matt Welsh (mitya.welsh@gmail.com)
  * @version 1.0
  * @since 1.0
  */
@@ -36,7 +36,7 @@ public interface AstronomicalObject {
    *
    * @return The name of the object.
    */
-  public String getName();
+  public String getObjectName();
 
   /**
    * Returns the right ascension and declination of the object.

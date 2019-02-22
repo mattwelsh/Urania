@@ -12,6 +12,8 @@
  */
 package com.mattwelsh.astronomy.coordinates;
 
+import com.mattwelsh.astronomy.utilities.Utilities;
+
 /**
  * <p>This class extends the Coordinate class and implements the reduceToRange method to ensure the
  * angle represented is between 0 to 360 degrees, and adds the astronomy standard Hours field.
@@ -23,40 +25,45 @@ package com.mattwelsh.astronomy.coordinates;
 public class RightAscension extends Coordinate {
 
   protected int hour;
+  protected double decimalHours;
 
   /**
    * Create an instance of a RightAscension class using the passed decimal degrees.
    *
-   * @param decimalDegrees The value of the coordinate represented by this class. This will
+   * @param dDegrees The value of the coordinate represented by this class. This will
    * cause a recalculation of all fields in this object.
    */
-  public RightAscension(double decimalDegrees) {
-    super(decimalDegrees);
-    hour = (int) (decimalDegrees/15);
+  public RightAscension(double dDegrees) {
+    super(dDegrees / 15);
+    hour = this.integerDegrees;
+    decimalHours = decimalDegrees;
+    decimalDegrees = dDegrees;
   }
 
   /**
-   * Sets the value of the coordinate represented by this class.
-   *
-   * @param decimalDegrees The value of the coordinate represented by this class. This will cause a
+   * Sets the value of the coordinate using the passed decimal degrees. This will cause a
    * recalculation of all fields in this object.
+   *
+   * @param dDegrees Sets the value of the coordinate using the passed decimal degrees.
    */
-  public void setDecimalDegrees(double decimalDegrees) {
-    this.decimalDegrees = decimalDegrees;
+  public void setDecimalDegrees(double dDegrees) {
+    this.decimalDegrees = dDegrees / 15;
     super.normalize();
-    hour = (int) (this.decimalDegrees/15);
+    decimalHours = this.decimalDegrees;
+    hour = this.integerDegrees;
+    this.decimalDegrees = dDegrees;
+    //hour = (int) (this.decimalDegrees/15);
   }
 
   /**
-   * Sets the value of the coordinate represented by this class.
+   * Sets the value of the coordinate using the passed decimal hours. This will cause a
+   * recalculation of all fields in this object.
    *
-   * @param hour The hour of the coordinate represented by this class. This will cause a
+   * @param dHours The hour of the coordinate represented by this class. This will cause a
    * recalculation of all fields in this object.
    */
-  public void setHour(int hour) {
-    double hourAsDegrees = (double)(hour * 15.0);
-    hourAsDegrees += this.decimalDegrees - (long)this.decimalDegrees;
-    setDecimalDegrees(hourAsDegrees);
+  public void setDecimalHours(double dHours) {
+    setDecimalDegrees(dHours * 15);
   }
 
   /**
@@ -68,18 +75,20 @@ public class RightAscension extends Coordinate {
     return this.hour;
   }
 
+  /**
+   * Gets the value of the coordinate expressed in decimal hours.
+   *
+   * @return The value of the coordinate expressed in decimal hours.
+   */
+  public double getDecimalHours() {
+    return this.decimalHours;
+  }
+
   // ------------------------------------------------------------------------------------------------
   // Private and protected methods
   // ------------------------------------------------------------------------------------------------
 
   protected void reduceToRange() {
-    if(decimalDegrees > 360.0) {
-      decimalDegrees = decimalDegrees - 360.0 * ((long)(decimalDegrees/360.0));
-    }
-
-    if(decimalDegrees < 0.0) {
-      decimalDegrees = decimalDegrees + 360.0 * ((long)Math.abs(decimalDegrees/360.0) + 1);
-    }
-
+    decimalDegrees = Utilities.reduceToRange24(decimalDegrees);
   }
 }

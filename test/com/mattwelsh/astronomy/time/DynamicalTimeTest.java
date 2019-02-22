@@ -12,25 +12,17 @@
  */
 package com.mattwelsh.astronomy.time;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.Assert;
 
 public class DynamicalTimeTest {
 
-  @Before
-  public void setUp() throws Exception {
-
+  @Test
+  public void testTypes() throws Exception {
     DeltaTCalculator meeus = DynamicalTime.MEEUS.getCalculator();
     DeltaTCalculator chapront = DynamicalTime.CHAPRONT.getCalculator();
-
-  }
-
-  @After
-  public void tearDown() throws Exception {}
-
-  @Test
-  public void getStartDateGregorian() throws Exception {
+    Assert.assertTrue(meeus instanceof MeeusDeltaT);
+    Assert.assertTrue(chapront instanceof ChaprontDeltaT);
   }
 
 

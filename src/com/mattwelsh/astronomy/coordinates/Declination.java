@@ -12,6 +12,8 @@
  */
 package com.mattwelsh.astronomy.coordinates;
 
+import com.mattwelsh.astronomy.utilities.Utilities;
+
 /**
  * This class extends the Coordinate class and implements the reduceToRange method to ensure the
  * angle represented is between -90 to 90 degrees. Below are some examples of the result of calling
@@ -101,13 +103,7 @@ public class Declination extends Coordinate {
    * of course -90 degrees.
    */
   protected void reduceToRange() {
-    while (decimalDegrees > 360.0) {
-      decimalDegrees -= 360.0;
-    }
-
-    while (decimalDegrees < 0.0) {
-      decimalDegrees += 360.0;
-    }
+    decimalDegrees = Utilities.reduceToRange360(decimalDegrees);
 
     int signum = 1;
     if (decimalDegrees > 180.0) {

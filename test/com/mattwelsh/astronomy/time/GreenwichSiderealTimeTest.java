@@ -12,7 +12,7 @@
  */
 package com.mattwelsh.astronomy.time;
 import org.junit.Test;
-
+import org.junit.Assert;
 /**
  * Unit tests for GreenwichSiderealTimeTest
  *
@@ -25,37 +25,37 @@ public class GreenwichSiderealTimeTest {
   @Test
   public void testGMST() {
     JulianDate jdn2 = new JulianDate(1987, 4, 10, 19, 21, 0);
-    org.junit.Assert.assertEquals(jdn2.getJulianDayNumber(), 2446896.30625, 0);
+    Assert.assertEquals(jdn2.getJulianDayNumber(), 2446896.30625, 0);
     GreenwichSiderealTime greenwichSiderealTime = new GreenwichSiderealTime(jdn2);
 
-    org.junit.Assert.assertEquals(greenwichSiderealTime.getJulianDate().getJulianDayNumber(),
+    Assert.assertEquals(greenwichSiderealTime.getJulianDate().getJulianDayNumber(),
         2446896.30625, 0.0);
-    org.junit.Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTime(),
+    Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTime(),
         128.7378734, 0.001);
-    org.junit.Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeDecimalHours(),
+    Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeDecimalHours(),
         8.58252489, 0.001);
 
     jdn2 = new JulianDate(1987, 4, 10, 0, 0, 0);
-    org.junit.Assert.assertEquals(jdn2.getJulianDayNumber(), 2446895.5, 0);
+    Assert.assertEquals(jdn2.getJulianDayNumber(), 2446895.5, 0);
     greenwichSiderealTime = new GreenwichSiderealTime(jdn2);
 
-    org.junit.Assert.assertEquals(greenwichSiderealTime.getJulianDate().getJulianDayNumber(),
+    Assert.assertEquals(greenwichSiderealTime.getJulianDate().getJulianDayNumber(),
         2446895.5, 0.0);
-    org.junit.Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeHour(),
+    Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeHour(),
         13, 0.0);
-    org.junit.Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeMinute(),
+    Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeMinute(),
         10, 0.0);
-    org.junit.Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeSecond(),
+    Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeSecond(),
         46, 0.0);
 
     jdn2 = new JulianDate(1978, 11, 13, 4, 34, 0);
     greenwichSiderealTime = new GreenwichSiderealTime(jdn2);
 
-    org.junit.Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeHour(),
+    Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeHour(),
         8, 0.0);
-    org.junit.Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeMinute(),
+    Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeMinute(),
         01, 0.0);
-    org.junit.Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeSecond(),
+    Assert.assertEquals(greenwichSiderealTime.getMeanSiderealTimeSecond(),
         46, 0.0);
   }
 }

@@ -16,6 +16,7 @@ package com.mattwelsh.astronomy.time;
 import com.mattwelsh.astronomy.event.JulianDateChangedEvent;
 import com.mattwelsh.astronomy.event.JulianDateChangedListener;
 import org.junit.Test;
+import org.junit.Assert;
 
 /**
  * Unit tests for MutableJulianDateTest object.
@@ -33,7 +34,7 @@ public class MutableJulianDateTest {
 
     MutableJulianDate jdn1 =
         new MutableJulianDate(2000, 1, 1, 12, 0, 0);
-    org.junit.Assert.assertEquals(jdn1.getJulianDayNumber(), 2451545.0, 0);
+    Assert.assertEquals(jdn1.getJulianDayNumber(), 2451545.0, 0);
 
     jdn1.addDateChangedListener(
         evt -> {
@@ -41,48 +42,48 @@ public class MutableJulianDateTest {
         });
 
     jdn1.setJulianDate(1999, 1, 1, 0, 0, 0);
-    org.junit.Assert.assertEquals(jdn1.getJulianDayNumber(), 2451179.5, 0);
-    org.junit.Assert.assertTrue(dateChangedEventFired);
+    Assert.assertEquals(jdn1.getJulianDayNumber(), 2451179.5, 0);
+    Assert.assertTrue(dateChangedEventFired);
 
     jdn1 = new MutableJulianDate(2451545.0);
-    org.junit.Assert.assertEquals(jdn1.getJulianDayNumber(), 2451545.0, 0);
+    Assert.assertEquals(jdn1.getJulianDayNumber(), 2451545.0, 0);
   }
 
   @Test
   public void setJulianDate() {
     MutableJulianDate jdn1 =
         new MutableJulianDate(2000, 1, 1, 12, 0, 0);
-    org.junit.Assert.assertEquals(jdn1.getJulianDayNumber(), 2451545.0, 0);
+    Assert.assertEquals(jdn1.getJulianDayNumber(), 2451545.0, 0);
     jdn1.addDateChangedListener(
         evt -> {
           setDateChangedEventFired();
         });
     jdn1.setJulianDayNumber(2451545.0);
-    org.junit.Assert.assertTrue(dateChangedEventFired);
+    Assert.assertTrue(dateChangedEventFired);
   }
 
   @Test
   public void addDateChangedListener() {
     MutableJulianDate jdn1 =
         new MutableJulianDate(2000, 1, 1, 12, 0, 0);
-    org.junit.Assert.assertEquals(jdn1.getJulianDayNumber(), 2451545.0, 0);
+    Assert.assertEquals(jdn1.getJulianDayNumber(), 2451545.0, 0);
     jdn1.addDateChangedListener(
         evt -> {
           setDateChangedEventFired();
         });
-    org.junit.Assert.assertEquals(jdn1.listeners.size(), 1, 0);
+    Assert.assertEquals(jdn1.listeners.size(), 1, 0);
   }
 
   @Test
   public void removeDateChangedListener() {
     MutableJulianDate jdn1 =
         new MutableJulianDate(2000, 1, 1, 12, 0, 0);
-    org.junit.Assert.assertEquals(jdn1.getJulianDayNumber(), 2451545.0, 0);
+    Assert.assertEquals(jdn1.getJulianDayNumber(), 2451545.0, 0);
     JulianDateChanged jDC = new JulianDateChanged();
     jdn1.addDateChangedListener(jDC);
-    org.junit.Assert.assertEquals(jdn1.listeners.size(), 1, 0);
+    Assert.assertEquals(jdn1.listeners.size(), 1, 0);
     jdn1.removeDateChangedListener(jDC);
-    org.junit.Assert.assertNull(jdn1.listeners);
+    Assert.assertNull(jdn1.listeners);
     // Should gracefully do nothing
     jdn1.removeDateChangedListener(jDC);
 

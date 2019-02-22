@@ -13,6 +13,7 @@
 package com.mattwelsh.astronomy.time;
 
 import org.junit.Test;
+import org.junit.Assert;
 
 /**
  * Unit tests for MeeusDeltaTTest object using example dates from Jean Meeus.
@@ -36,13 +37,13 @@ public class MeeusDeltaTTest {
     JulianDate jd6 = new JulianDate(1999, 1, 11, 12, 0, 0);
     JulianDate jd7 = new JulianDate(2007, 1, 1, 12, 0, 0);
 
-    org.junit.Assert.assertEquals(calc.getDeltaT(jd1), 6146.0, 0.9);
-    org.junit.Assert.assertEquals(calc.getDeltaT(jd2), 1610.0, 0.9);
-    org.junit.Assert.assertEquals(calc.getDeltaT(jd3), 88.0, 0.9);
-    org.junit.Assert.assertEquals(calc.getDeltaT(jd4), 5.4, 0.5);
-    org.junit.Assert.assertEquals(calc.getDeltaT(jd5), -2.8, 0.5);
-    org.junit.Assert.assertEquals(calc.getDeltaT(jd6), 63.4, 0.5);
-    org.junit.Assert.assertEquals(calc.getDeltaT(jd7), 63.4, 12.0);
+    Assert.assertEquals(calc.getDeltaT(jd1), 6146.0, 0.9);
+    Assert.assertEquals(calc.getDeltaT(jd2), 1610.0, 0.9);
+    Assert.assertEquals(calc.getDeltaT(jd3), 88.0, 0.9);
+    Assert.assertEquals(calc.getDeltaT(jd4), 5.4, 0.5);
+    Assert.assertEquals(calc.getDeltaT(jd5), -2.8, 0.5);
+    Assert.assertEquals(calc.getDeltaT(jd6), 63.4, 0.5);
+    Assert.assertEquals(calc.getDeltaT(jd7), 63.4, 12.0);
   }
 
 }

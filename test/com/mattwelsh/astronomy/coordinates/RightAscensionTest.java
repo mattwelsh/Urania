@@ -11,63 +11,99 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 package com.mattwelsh.astronomy.coordinates;
+
 import org.junit.Test;
+import org.junit.Assert;
 
 public class RightAscensionTest {
 
   @Test
-  public void setHour() {
-    RightAscension coord1 = new RightAscension(0.0);
-    org.junit.Assert.assertEquals(coord1.getHour(), 0);
-    coord1.setHour(3);
-    org.junit.Assert.assertEquals(coord1.getHour(), 3);
-    org.junit.Assert.assertEquals(coord1.getDecimalDegrees(), 45.0, 0.0);
+  public void generalInitializations() {
+    RightAscension coord1 = new RightAscension(134.6884685486162);
+    Assert.assertEquals(coord1.getHour(),8);
+    Assert.assertEquals(coord1.getMinutes(),58);
+    Assert.assertEquals(coord1.getSeconds(),45.2, 0.9);
+    Assert.assertEquals(coord1.getDecimalDegrees(), 134.6884685486162, 0.0);
+    Assert.assertEquals(coord1.getDecimalHours(), 8.979231236574413, 0.0);
 
-    coord1.setDecimalDegrees(700.0);
-    org.junit.Assert.assertEquals(coord1.getDecimalDegrees(), 340.0, 0.0);
+    coord1 = new RightAscension(138.73250);
+    Assert.assertEquals(coord1.getHour(),9);
+    Assert.assertEquals(coord1.getMinutes(),14);
+    Assert.assertEquals(coord1.getSeconds(),55.7, 0.9);
+    Assert.assertEquals(coord1.getDecimalDegrees(), 138.73250, 0.0);
+    Assert.assertEquals(coord1.getDecimalHours(), 9.248833333333333, 0.0001);
 
-    coord1.setDecimalDegrees(225.0);
-    org.junit.Assert.assertEquals(coord1.getHour(), 15);
-    org.junit.Assert.assertEquals(coord1.getDecimalDegrees(), 225.0, 0.0);
+    coord1 = new RightAscension(232.93231);
+    Assert.assertEquals(coord1.getHour(),15);
+    Assert.assertEquals(coord1.getMinutes(),31);
+    Assert.assertEquals(coord1.getSeconds(),43.8, 0.9);
+    Assert.assertEquals(coord1.getDecimalDegrees(), 232.93231, 0.0);
+    Assert.assertEquals(coord1.getDecimalHours(), 15.528820666666667, 0.0001);
 
-    coord1.setDecimalDegrees(540.0);
-    org.junit.Assert.assertEquals(coord1.getHour(), 12);
-    org.junit.Assert.assertEquals(coord1.getDecimalDegrees(), 180.0, 0.0);
+    coord1 = new RightAscension(198.378178);
+    Assert.assertEquals(coord1.getHour(),13);
+    Assert.assertEquals(coord1.getMinutes(),13);
+    Assert.assertEquals(coord1.getSeconds(),30.7, 0.9);
+    Assert.assertEquals(coord1.getDecimalDegrees(), 198.378178, 0.0);
+    Assert.assertEquals(coord1.getDecimalHours(), 13.225211866666667, 0.0001);
 
-    coord1.setDecimalDegrees(-180.0);
-    org.junit.Assert.assertEquals(coord1.getHour(), 12);
-    org.junit.Assert.assertEquals(coord1.getDecimalDegrees(), 180.0, 0.0);
+    coord1 = new RightAscension(158.558965);
+    Assert.assertEquals(coord1.getHour(),10);
+    Assert.assertEquals(coord1.getMinutes(),34);
+    Assert.assertEquals(coord1.getSeconds(),14.2, 0.9);
+    Assert.assertEquals(coord1.getDecimalDegrees(), 158.558965, 0.0);
+    Assert.assertEquals(coord1.getDecimalHours(), 10.570597666666667, 0.0001);
 
-    coord1.setDecimalDegrees(-90.0);
-    org.junit.Assert.assertEquals(coord1.getDecimalDegrees(), 270.0, 0.0);
+    RightAscension coord12 = new RightAscension(675.0);
+    Assert.assertEquals(coord12.getHour(), 21);
 
-    coord1.setDecimalDegrees(-200.0);
-    org.junit.Assert.assertEquals(coord1.getDecimalDegrees(), 160.0, 0.0);
-
-    coord1.setDecimalDegrees(-900.0);
-    org.junit.Assert.assertEquals(coord1.getHour(), 12);
-    org.junit.Assert.assertEquals(coord1.getDecimalDegrees(), 180.0, 0.0);
   }
 
   @Test
-  public void getHour() {
+  public void setDecimalDegrees() {
+    RightAscension coord1 = new RightAscension(134.6884685486162);
+    Assert.assertEquals(coord1.getHour(),8);
+    Assert.assertEquals(coord1.getMinutes(),58);
+    Assert.assertEquals(coord1.getSeconds(),45.2, 0.9);
+    Assert.assertEquals(coord1.getDecimalDegrees(), 134.6884685486162, 0.0);
+    Assert.assertEquals(coord1.getDecimalHours(), 8.979231236574413, 0.0);
 
-    RightAscension coord1 = new RightAscension(0.0);
-    RightAscension coord3 = new RightAscension(45.0);
-    RightAscension coord4 = new RightAscension(90.0);
-    RightAscension coord5 = new RightAscension(135.0);
-    RightAscension coord7 = new RightAscension(180.0);
-    RightAscension coord8 = new RightAscension(225.0);
-    RightAscension coord10 = new RightAscension(270.0);
-    RightAscension coord12 = new RightAscension(315.0);
+    coord1.setDecimalDegrees(138.73250);
+    Assert.assertEquals(coord1.getHour(),9);
+    Assert.assertEquals(coord1.getMinutes(),14);
+    Assert.assertEquals(coord1.getSeconds(),55.7, 0.9);
+    Assert.assertEquals(coord1.getDecimalDegrees(), 138.73250, 0.0);
+    Assert.assertEquals(coord1.getDecimalHours(), 9.248833333333333, 0.0001);
 
-    org.junit.Assert.assertEquals(coord1.getHour(), 0);
-    org.junit.Assert.assertEquals(coord3.getHour(), 3);
-    org.junit.Assert.assertEquals(coord4.getHour(), 6);
-    org.junit.Assert.assertEquals(coord5.getHour(), 9);
-    org.junit.Assert.assertEquals(coord7.getHour(), 12);
-    org.junit.Assert.assertEquals(coord8.getHour(), 15);
-    org.junit.Assert.assertEquals(coord10.getHour(), 18);
-    org.junit.Assert.assertEquals(coord12.getHour(), 21);
+    coord1.setDecimalDegrees(158.558965);
+    Assert.assertEquals(coord1.getHour(),10);
+    Assert.assertEquals(coord1.getMinutes(),34);
+    Assert.assertEquals(coord1.getSeconds(),14.2, 0.9);
+    Assert.assertEquals(coord1.getDecimalDegrees(), 158.558965, 0.0);
+    Assert.assertEquals(coord1.getDecimalHours(), 10.570597666666667, 0.0001);
+  }
+
+  @Test
+  public void setDecimalHours() {
+    RightAscension coord1 = new RightAscension(134.6884685486162);
+    Assert.assertEquals(coord1.getHour(),8);
+    Assert.assertEquals(coord1.getMinutes(),58);
+    Assert.assertEquals(coord1.getSeconds(),45.2, 0.9);
+    Assert.assertEquals(coord1.getDecimalDegrees(), 134.6884685486162, 0.0);
+    Assert.assertEquals(coord1.getDecimalHours(), 8.979231236574413, 0.0);
+
+    coord1.setDecimalHours(9.248833333333333);
+    Assert.assertEquals(coord1.getHour(),9);
+    Assert.assertEquals(coord1.getMinutes(),14);
+    Assert.assertEquals(coord1.getSeconds(),55.7, 0.9);
+    Assert.assertEquals(coord1.getDecimalDegrees(), 138.73250, 0.001);
+    Assert.assertEquals(coord1.getDecimalHours(), 9.248833333333333, 0.0001);
+
+    coord1.setDecimalHours(10.570597666666667);
+    Assert.assertEquals(coord1.getHour(),10);
+    Assert.assertEquals(coord1.getMinutes(),34);
+    Assert.assertEquals(coord1.getSeconds(),14.2, 0.9);
+    Assert.assertEquals(coord1.getDecimalDegrees(), 158.558965, 0.001);
+    Assert.assertEquals(coord1.getDecimalHours(), 10.570597666666667, 0.0001);
   }
 }

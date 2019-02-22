@@ -12,25 +12,19 @@
  */
 package com.mattwelsh.astronomy.coordinates;
 
-import static org.junit.Assert.*;
+import org.junit.Assert;
 
 import org.junit.Test;
 
 public class RaDecTest {
 
   @Test
-  public void getRightAscension() {
+  public void testCreate() {
     RightAscension ra = new RightAscension(6.5);
     Declination dec = new Declination(43.868);
     RaDec raDec = new RaDec(ra, dec);
-    org.junit.Assert.assertEquals(ra, raDec.getRightAscension());
+    Assert.assertEquals(ra, raDec.getRightAscension());
+    Assert.assertEquals(dec, raDec.getDeclination());
   }
 
-  @Test
-  public void getDeclination() {
-    RightAscension ra = new RightAscension(6.5);
-    Declination dec = new Declination(43.868);
-    RaDec raDec = new RaDec(ra, dec);
-    org.junit.Assert.assertEquals(dec, raDec.getDeclination());
-  }
 }
