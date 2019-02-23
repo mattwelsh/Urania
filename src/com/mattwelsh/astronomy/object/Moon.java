@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 
 /**
  * This class implements the AstronomicalObject interface and calculates the circumstances of the
- * moon using one of the methods specified by the METHOD enumeration.
+ * moon using one of the methods specified by the LunarCircumstances enumeration.
  *
  * @author Matt Welsh (mitya.welsh@gmail.com)
  * @version 1.0
@@ -64,6 +64,16 @@ public class Moon implements AstronomicalObject {
   @Override
   public RaDec getRaDec() {
     return this.computer.getRaDec();
+  }
+
+  /**
+   * Gets the type of an AstronomicalObject.
+   *
+   * @return One of the enumerated types below.
+   */
+  @Override
+  public TYPE getType() {
+    return TYPE.MOON;
   }
 
   /**

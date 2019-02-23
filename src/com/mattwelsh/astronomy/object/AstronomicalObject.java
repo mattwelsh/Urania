@@ -45,6 +45,13 @@ public interface AstronomicalObject {
    */
   public RaDec getRaDec();
 
+  /**
+   * Gets the type of an AstronomicalObject.
+   *
+   * @return One of the enumerated types below.
+   */
+  public TYPE getType();
+
   enum TYPE {
     /** Type for the 8 planets from Mercury to Neptune. */
     PLANET,
