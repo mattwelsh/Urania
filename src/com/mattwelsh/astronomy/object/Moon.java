@@ -34,7 +34,7 @@ public class Moon implements AstronomicalObject {
    * Create an instance of the Moon object and calculate the circumstances of the moon for that
    * moment in time using the default method.
    *
-   * @param julianDate
+   * @param julianDate The date to use to compute the circumstances.
    */
   public Moon(JulianDate julianDate) {
     this(julianDate, LunarCircumstances.DEFAULT.getCalculator());
@@ -44,7 +44,8 @@ public class Moon implements AstronomicalObject {
    * Create an instance of the Moon object and calculate the circumstances of the moon for that
    * moment in time using the passed method.
    *
-   * @param julianDate
+   * @param julianDate The date to use to compute the circumstances.
+   * @param computer The LunarCircumstanceComputer to use to do the calculations.
    */
   public Moon(JulianDate julianDate, LunarCircumstanceComputer computer) {
     this.julianDate = julianDate;
