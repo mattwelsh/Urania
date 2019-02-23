@@ -21,6 +21,14 @@ import com.mattwelsh.astronomy.coordinates.RightAscension;
 import com.mattwelsh.astronomy.time.DeltaTCalculator;
 import com.mattwelsh.astronomy.time.JulianDate;
 
+/**
+ * This class implements the API that lunar circumstance calculators must implement using the
+ * method of Jean Meeus in Astronomical Algorithms.
+ *
+ * @author Matt Welsh (mitya.welsh@gmail.com)
+ * @version 1.0
+ * @since 1.0
+ */
 class MeeusCircumstanceComputer implements LunarCircumstanceComputer {
 
   private JulianDate julianDate;
