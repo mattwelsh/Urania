@@ -59,4 +59,39 @@ public interface LunarCircumstanceComputer {
    * @return The distance in kilometers between the centers of the earth and moon.
    */
   double getDistance();
+
+  /**
+   * Return the mean longitude of the moon.
+   *
+   * @return The mean longitude of the moon.
+   */
+  double getMeanLongitude();
+
+  /**
+   * Return the mean elongation of the moon.
+   *
+   * @return The mean elongation of the moon.
+   */
+  double getMeanElongation();
+
+  /**
+   * Return the mean anomaly of the moon.
+   *
+   * @return The mean anomaly of the moon.
+   */
+  double getMeanAnomaly();
+
+  /**
+   * Return the mean argument of latitude (the distance of the moon from it's ascending node).
+   *
+   * @return The mean argument of latitude.
+   */
+  double getArgumentOfLatitude();
+
+  /**
+   * Returns the apparent longitude of the moon.
+   *
+   * @return The apparent longitude of the moon.
+   */
+  double getApparentLongitude();
 }

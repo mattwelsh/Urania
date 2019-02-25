@@ -42,9 +42,10 @@ public class MoonTest {
     Assert.assertEquals(raDec.getDeclination().getSeconds(), 6, 0.5);
     Assert.assertEquals(moon.getDistance(), 368405.6, 10.0);
 
-    //Moon moon = new Moon(new JulianDate(2446895.5));
-    //Moon moon = new Moon(new JulianDate(2458537));
-
-
+    Assert.assertEquals(moon.getComputer().getMeanLongitude(), 134.290182, 0.000001);
+    Assert.assertEquals(moon.getComputer().getMeanElongation(), 113.842304, 0.000001);
+    Assert.assertEquals(moon.getComputer().getMeanAnomaly(), 5.150833, 0.000001);
+    Assert.assertEquals(moon.getComputer().getArgumentOfLatitude(), 219.889721, 0.000001);
+    Assert.assertEquals(moon.getComputer().getApparentLongitude(), 133.167265, 0.000001);
   }
 }

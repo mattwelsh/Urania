@@ -91,6 +91,56 @@ class MeeusCircumstanceComputer implements LunarCircumstanceComputer {
   @Override
   public double getDistance() { return this.distance; }
 
+  /**
+   * Return the mean longitude of the moon.
+   *
+   * @return The mean longitude of the moon.
+   */
+  @Override
+  public double getMeanLongitude() {
+    return this.meanLongitude;
+  }
+
+  /**
+   * Return the mean elongation of the moon.
+   *
+   * @return The mean elongation of the moon.
+   */
+  @Override
+  public double getMeanElongation() {
+    return this.meanElongation;
+  }
+
+  /**
+   * Return the mean anomaly of the moon.
+   *
+   * @return The mean anomaly of the moon.
+   */
+  @Override
+  public double getMeanAnomaly() {
+    return this.meanAnomaly;
+  }
+
+  /**
+   * Return the mean argument of latitude (the distance of the moon from it's ascending node).
+   *
+   * @return The mean argument of latitude.
+   */
+  @Override
+  public double getArgumentOfLatitude() {
+    return this.argumentOfLatitude;
+  }
+
+  /**
+   * Returns the apparent longitude of the moon.
+   *
+   * @return The apparent longitude of the moon.
+   */
+  @Override
+  public double getApparentLongitude() {
+    return this.apparentLongitude;
+  }
+
   // -----------------------------------------------------------------------------------------------
   // Protected and private methods
   // -----------------------------------------------------------------------------------------------

@@ -67,9 +67,9 @@ public class Moon implements AstronomicalObject {
   }
 
   /**
-   * Gets the type of an AstronomicalObject.
+   * Returns the AstronomicalObject.MOON type for this object.
    *
-   * @return One of the enumerated types below.
+   * @return The AstronomicalObject.MOON type for this object.
    */
   @Override
   public TYPE getType() {
