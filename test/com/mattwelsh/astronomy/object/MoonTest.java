@@ -47,5 +47,8 @@ public class MoonTest {
     Assert.assertEquals(moon.getComputer().getMeanAnomaly(), 5.150833, 0.000001);
     Assert.assertEquals(moon.getComputer().getArgumentOfLatitude(), 219.889721, 0.000001);
     Assert.assertEquals(moon.getComputer().getApparentLongitude(), 133.167265, 0.000001);
+
+    Assert.assertEquals(moon.getComputer().getMeanAscendingNode(), 274.4, 0.1);
+    Assert.assertEquals(moon.getComputer().getMeanPerigee(), 129.1, 0.1);
   }
 }

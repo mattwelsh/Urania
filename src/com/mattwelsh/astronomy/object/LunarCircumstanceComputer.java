@@ -94,4 +94,20 @@ public interface LunarCircumstanceComputer {
    * @return The apparent longitude of the moon.
    */
   double getApparentLongitude();
-}
+
+  /**
+   * Returns the mean ascending node of the moon.
+   *
+   * @return The mean ascending node of the moon.
+   */
+  double getMeanAscendingNode();
+
+  /**
+   * Returns the mean perigee of the moon.
+   *
+   * @return The mean perigee of the moon.
+   */
+  double getMeanPerigee();
+
+
+  }

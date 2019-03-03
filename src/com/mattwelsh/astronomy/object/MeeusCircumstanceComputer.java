@@ -54,6 +54,8 @@ class MeeusCircumstanceComputer implements LunarCircumstanceComputer {
   private double apparentLongitude;
   private double longitude;
   private double latitude;
+  private double meanAscendingNode;
+  private double meanPerigee;
 
   @Override
   public void computeCircumstances(JulianDate jd) {
@@ -71,6 +73,7 @@ class MeeusCircumstanceComputer implements LunarCircumstanceComputer {
     computePeriodicLongitudeAndDistance();
     computePeriodicLatitude();
     computeCoordinates();
+    computeNodeAndPerigee();
   }
 
   /**
@@ -139,6 +142,26 @@ class MeeusCircumstanceComputer implements LunarCircumstanceComputer {
   @Override
   public double getApparentLongitude() {
     return this.apparentLongitude;
+  }
+
+  /**
+   * Returns the mean ascending node of the moon.
+   *
+   * @return The mean ascending node of the moon.
+   */
+  @Override
+  public double getMeanAscendingNode() {
+    return this.meanAscendingNode;
+  }
+
+  /**
+   * Returns the mean perigee of the moon.
+   *
+   * @return The mean perigee of the moon.
+   */
+  @Override
+  public double getMeanPerigee() {
+    return this.meanPerigee;
   }
 
   // -----------------------------------------------------------------------------------------------
@@ -432,6 +455,16 @@ class MeeusCircumstanceComputer implements LunarCircumstanceComputer {
     Declination declination = new Declination(dec);
 
     raDec = new RaDec(rightAscension, declination);
+  }
+
+  private void computeNodeAndPerigee() {
+    meanAscendingNode = 125.0445479 - (1934.1362891 * deltaT) + (0.0020754 * deltaT2) +
+        (deltaT3 / 467441) - (deltaT4 / 60616000);
+    meanAscendingNode = reduceToRange(meanAscendingNode);
+    meanPerigee = 83.3532465 + (4069.0137287 * deltaT) - (0.0103200 * deltaT2) -
+        (deltaT3 / 80053.0) + (deltaT4 / 18999000.0);
+    meanPerigee = reduceToRange(meanPerigee);
+
   }
 }
 
