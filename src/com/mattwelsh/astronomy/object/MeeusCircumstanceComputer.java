@@ -56,6 +56,7 @@ class MeeusCircumstanceComputer implements LunarCircumstanceComputer {
   private double latitude;
   private double meanAscendingNode;
   private double meanPerigee;
+  private double trueAscendingNode;
 
   @Override
   public void computeCircumstances(JulianDate jd) {
@@ -162,6 +163,16 @@ class MeeusCircumstanceComputer implements LunarCircumstanceComputer {
   @Override
   public double getMeanPerigee() {
     return this.meanPerigee;
+  }
+
+  /**
+   * Returns the true ascending node of the moon.
+   *
+   * @return The true ascending node of the moon.
+   */
+  @Override
+  public double getTrueAscendingNode() {
+    return this.trueAscendingNode;
   }
 
   // -----------------------------------------------------------------------------------------------
@@ -465,6 +476,15 @@ class MeeusCircumstanceComputer implements LunarCircumstanceComputer {
         (deltaT3 / 80053.0) + (deltaT4 / 18999000.0);
     meanPerigee = reduceToRange(meanPerigee);
 
+    trueAscendingNode = meanAscendingNode -
+        (1.4979 * Math.sin(Math.toRadians(2 * (this.meanElongation - this.argumentOfLatitude))));
+    trueAscendingNode = trueAscendingNode - (0.15 * Math.sin(Math.toRadians(this.sunsMeanAnomaly)));
+    trueAscendingNode = trueAscendingNode -
+        (0.1226 * Math.sin(Math.toRadians(2 * this.meanElongation)));
+    trueAscendingNode = trueAscendingNode +
+        (0.1176 * Math.sin(Math.toRadians(this.argumentOfLatitude)));
+    trueAscendingNode = trueAscendingNode -
+        (0.0801 * Math.sin(Math.toRadians(2 * (this.meanAnomaly - this.argumentOfLatitude))));
   }
 }
 

@@ -109,5 +109,11 @@ public interface LunarCircumstanceComputer {
    */
   double getMeanPerigee();
 
+  /**
+   * Returns the true ascending node of the moon.
+   *
+   * @return The true ascending node of the moon.
+   */
+   double getTrueAscendingNode();
 
   }
