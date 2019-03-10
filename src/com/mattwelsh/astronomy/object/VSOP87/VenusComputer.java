@@ -14,10 +14,10 @@
 package com.mattwelsh.astronomy.object.VSOP87;
 
 import com.mattwelsh.astronomy.time.JulianDate;
-import com.mattwelsh.astronomy.object.VSOP87.mercury.*;
+import com.mattwelsh.astronomy.object.VSOP87.venus.*;
 
 /**
- * This class computes the rectangular (X, Y, Z) coordinates in AU for the planet Mercury
+ * This class computes the rectangular (X, Y, Z) coordinates in AU for the planet Venus
  * with respect to equinox J2000 using VSOP87 Series Version A. This series should have an accuracy
  * of ±1 arc sec over the span 2000 BC to 6000 AD. R is then calculated as R*R = X*X + Y*Y + Z*Z.
  *
@@ -30,9 +30,9 @@ import com.mattwelsh.astronomy.object.VSOP87.mercury.*;
  * @version 1.0
  * @since 1.0
  */
-public class MercuryComputer {
+public class VenusComputer {
 
-  private MercuryRectangularDataReader rectDataReader;
+  private VenusRectangularDataReader rectDataReader;
   private JulianDate julianDate;
   private double rectX;
   private double rectY;
@@ -44,7 +44,7 @@ public class MercuryComputer {
    *
    * @param jd The JulianDate to use to initialize this object.
    */
-  public MercuryComputer(JulianDate jd) {
+  public VenusComputer(JulianDate jd) {
     setJulianDate(jd);
   }
 
@@ -92,7 +92,7 @@ public class MercuryComputer {
 
   private void updateFields() {
     this.t = computeT(julianDate.getJulianDayNumber());
-    rectDataReader = new MercuryRectangularDataReader(t);
+    rectDataReader = new VenusRectangularDataReader(t);
     this.rectX = rectDataReader.getX();
     this.rectY = rectDataReader.getY();
     this.rectZ = rectDataReader.getZ();

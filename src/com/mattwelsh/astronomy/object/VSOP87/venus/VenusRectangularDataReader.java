@@ -11,21 +11,21 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-package com.mattwelsh.astronomy.object.VSOP87.mercury;
+package com.mattwelsh.astronomy.object.VSOP87.venus;
 
 import com.mattwelsh.astronomy.object.VSOP87.RectangularDataReader;
 
 /**
- * This subclass of RectangularDataReader is used to read the VSOP data files for Mercury and
- * compute the series for the X, Y, and Z coordinates (in AU).
+ * This subclass of RectangularDataReader is used to read the VSOP data files for Venus and compute
+ * the series for the X, Y, and Z coordinates (in AU).
  *
  * @author Matt Welsh (mitya.welsh@gmail.com)
  * @version 1.0
  * @since 1.0
  */
-public class MercuryRectangularDataReader extends RectangularDataReader {
+public class VenusRectangularDataReader extends RectangularDataReader {
 
-  public MercuryRectangularDataReader(double t) {
+  public VenusRectangularDataReader(double t) {
     super(t);
   }
 
