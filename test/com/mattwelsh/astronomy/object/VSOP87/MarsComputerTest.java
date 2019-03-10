@@ -17,14 +17,14 @@ import com.mattwelsh.astronomy.time.JulianDate;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class VenusComputerTest {
+public class MarsComputerTest {
 
   @Test
   public void TestRectangularCoords() {
     JulianDate jd = new JulianDate(2448724.5);
-    VenusComputer comp = new VenusComputer(jd);
-    Assert.assertEquals(comp.getRectX(), 0.693618706659302, 0.00000000000000001);
-    Assert.assertEquals(comp.getRectY(), -0.21519807038439495, 0.00000000000000001);
-    Assert.assertEquals(comp.getRectZ(), -0.04297582827630985, 0.00000000000000001);
+    MarsComputer comp = new MarsComputer(jd);
+    Assert.assertEquals(comp.getRectX(), 0.9575244298592442, 0.00000000000000001);
+    Assert.assertEquals(comp.getRectY(), -1.0069530680440932, 0.00000000000000001);
+    Assert.assertEquals(comp.getRectZ(), -0.04464292792022811, 0.00000000000000001);
   }
 }

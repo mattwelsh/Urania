@@ -13,8 +13,6 @@
 
 package com.mattwelsh.astronomy.object.VSOP87;
 
-import static org.junit.Assert.*;
-
 import com.mattwelsh.astronomy.time.JulianDate;
 import org.junit.Assert;
 import org.junit.Test;
