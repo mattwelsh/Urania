@@ -17,7 +17,7 @@ import com.mattwelsh.astronomy.time.JulianDate;
 import com.mattwelsh.astronomy.object.VSOP87.earth.*;
 
 /**
- * This class computes the rectangular (X, Y, Z) coordinates in AU for the planet Venus
+ * This class computes the rectangular (X, Y, Z) coordinates in AU for the planet Earth
  * with respect to equinox J2000 using VSOP87 Series Version A. This series should have an accuracy
  * of ±1 arc sec over the span 2000 BC to 6000 AD. R is then calculated as R*R = X*X + Y*Y + Z*Z.
  *
