@@ -13,6 +13,39 @@
 
 package com.mattwelsh.astronomy.object.VSOP87b;
 
-public class SaturnComputer {
+import com.mattwelsh.astronomy.object.VSOP87b.saturn.SaturnLbrDataReader;
+import com.mattwelsh.astronomy.time.JulianDate;
 
+/**
+ * This class computes the heliocentric longitude, latitude, and radius vector for the planet
+ * Saturn with respect to equinox J2000 using VSOP87 Series Version B. This series should have an
+ * accuracy of ±1 arc sec over the span 2000 BC to 6000 AD.
+ *
+ * <p>In these series t = (JD - 2451545.0) / 365250.0
+ *
+ * <p>Ref: Planetary Theories in Rectangular and Spherical Variables VSOP87 Solutions Pierre
+ * Bretagnon, Gerard Francou Journal of Astronomy & Astrophysics vol. 202, p309-p315 1988
+ *
+ * @author Matt Welsh (mitya.welsh@gmail.com)
+ * @version 1.0
+ * @since 1.0
+ */
+public class SaturnComputer extends PlanetaryComputer {
+
+  /**
+   * Initializes a computer using the passed JulianDate.
+   *
+   * @param jd The JulianDate to use to initialize this object.
+   */
+  public SaturnComputer(JulianDate jd) {
+    super(jd);
+  }
+
+  /**
+   * Intitalizes the data reader for this class.
+   */
+  @Override
+  protected void initializeDataReader() {
+    this.dataReader = new SaturnLbrDataReader(this.t);
+  }
 }
