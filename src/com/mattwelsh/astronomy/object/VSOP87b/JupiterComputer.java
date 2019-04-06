@@ -11,25 +11,8 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-package com.mattwelsh.astronomy.object.VSOP87a;
+package com.mattwelsh.astronomy.object.VSOP87b;
 
-import com.mattwelsh.astronomy.time.JulianDate;
-import org.junit.Assert;
-import org.junit.Test;
-
-public class JupiterComputerTest {
-
-  @Test
-  public void TestRectangularCoords() {
-    //JulianDate jd = new JulianDate(2448724.5);
-    JulianDate jd = new JulianDate(2448972.5);
-    JupiterComputer comp = new JupiterComputer(jd);
-    Assert.assertEquals(comp.getRectX(), -5.1759773275205045, 0.00000000000000001);
-    Assert.assertEquals(comp.getRectY(), 1.5738696075877108, 0.00000000000000001);
-    Assert.assertEquals(comp.getRectZ(), 0.10940416381524534, 0.00000000000000001);
-    double[] eclipticCoords = new double[] {comp.getRectX(),comp.getRectY(),comp.getRectZ()};
-  }
-
-
+public class JupiterComputer {
 
 }
