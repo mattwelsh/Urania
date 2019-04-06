@@ -23,7 +23,7 @@ import com.mattwelsh.astronomy.object.VSOP87b.LbrDataReader;
  * @version 1.0
  * @since 1.0
  */
-public class MarsLbrDataReader  extends LbrDataReader {
+public class MarsLbrDataReader extends LbrDataReader {
 
   public MarsLbrDataReader(double t) {
     super(t);
