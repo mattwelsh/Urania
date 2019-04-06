@@ -64,6 +64,51 @@ public class Utilities {
     return hourAngle;
   }
 
+
+  /**
+   * Ensure the angle is between -90 to 90 degrees. Below are some examples of the result of calling
+   * this method:
+   *
+   * <p>
+   *
+   * <ul>
+   *   <li>45 degrees -> 45 degrees
+   *   <li>
+   *   <li>90 degrees -> 90 degrees
+   *   <li>
+   *   <li>135 degrees -> 45 degrees
+   *   <li>
+   *   <li>225 degrees -> -45 degrees
+   *   <li>
+   *   <li>241.23917 degrees -> -61.23917 degrees
+   *   <li>
+   *   <li>-517.9103 degrees -> -22.0897 degrees
+   *   <li>
+   * </ul>
+   *
+   * <p>This translation is similar to how latitude on earth works. You can visualize these
+   * translations as if you were moving your finger on a globe. If you start at the equator and move
+   * north your latitude increases until you reach the pole, where it then begins to decrease. As
+   * you continue moving your finger down you reach zero at the equator and moving still farther
+   * south the latitude continues to decrease until you reach the south pole where the latitude is
+   * of course -90 degrees.
+   */
+  public static double reduceToRange90(double decDegrees) {
+    double decimalDegrees = Utilities.reduceToRange360(decDegrees);
+
+    int signum = 1;
+    if (decimalDegrees > 180.0) {
+      signum = -1;
+      decimalDegrees -= 180.0;
+    }
+
+    if (decimalDegrees > 90.0) {
+      decimalDegrees = 180 - decimalDegrees;
+    }
+    decimalDegrees *= signum;
+    return decimalDegrees;
+  }
+
   // -----------------------------------------------------------------------------------------------
   // Protected, package local, & and private methods
   // -----------------------------------------------------------------------------------------------

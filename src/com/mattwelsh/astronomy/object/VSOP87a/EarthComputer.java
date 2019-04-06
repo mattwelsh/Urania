@@ -90,7 +90,7 @@ public class EarthComputer {
   // Protected, package local, & and private methods
   // -----------------------------------------------------------------------------------------------
 
-  private void updateFields() {
+  protected void updateFields() {
     this.t = computeT(julianDate.getJulianDayNumber());
     rectDataReader = new EarthRectangularDataReader(t);
     this.rectX = rectDataReader.getX();
@@ -98,7 +98,7 @@ public class EarthComputer {
     this.rectZ = rectDataReader.getZ();
   }
 
-  private double computeT(double jDN) {
+  protected double computeT(double jDN) {
     return (jDN - 2451545.0) / 365250.0;
   }
 
