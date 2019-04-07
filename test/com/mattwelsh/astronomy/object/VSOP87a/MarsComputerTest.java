@@ -21,10 +21,23 @@ public class MarsComputerTest {
 
   @Test
   public void TestRectangularCoords() {
-    JulianDate jd = new JulianDate(2448724.5);
+
+    JulianDate jd = new JulianDate(2000, 1, 1, 12, 0, 0);
     MarsComputer comp = new MarsComputer(jd);
-    Assert.assertEquals(comp.getRectX(), 0.9575244298592442, 0.00000000000000001);
-    Assert.assertEquals(comp.getRectY(), -1.0069530680440932, 0.00000000000000001);
-    Assert.assertEquals(comp.getRectZ(), -0.04464292792022811, 0.00000000000000001);
+    Assert.assertEquals(comp.getRectX(), 1.3907159264, 0.0000000001);
+    Assert.assertEquals(comp.getRectY(), -0.0134157043, 0.0000000001);
+    Assert.assertEquals(comp.getRectZ(), -0.0344677967, 0.0000000001);
+
+    jd = new JulianDate(1899, 12, 31, 12, 0, 0);
+    comp = new MarsComputer(jd);
+    Assert.assertEquals(comp.getRectX(), 0.4284332474, 0.0000000001);
+    Assert.assertEquals(comp.getRectY(), -1.3552354250, 0.0000000001);
+    Assert.assertEquals(comp.getRectZ(), -0.0389650205, 0.0000000001);
+
+    jd = new JulianDate(1799, 12, 30, 12, 0, 0);
+    comp = new MarsComputer(jd);
+    Assert.assertEquals(comp.getRectX(), -1.1119219621, 0.0000000001);
+    Assert.assertEquals(comp.getRectY(), -1.0963263014, 0.0000000001);
+    Assert.assertEquals(comp.getRectZ(), 0.0049208507, 0.0000000001);
   }
 }
