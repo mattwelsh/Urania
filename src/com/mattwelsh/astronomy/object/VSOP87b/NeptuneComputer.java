@@ -13,7 +13,7 @@
 
 package com.mattwelsh.astronomy.object.VSOP87b;
 
-import com.mattwelsh.astronomy.object.VSOP87b.mars.MarsLbrDataReader;
+import com.mattwelsh.astronomy.object.VSOP87b.neptune.NeptuneLbrDataReader;
 import com.mattwelsh.astronomy.time.JulianDate;
 
 /**
@@ -46,6 +46,6 @@ public class NeptuneComputer extends PlanetaryComputer {
    */
   @Override
   protected void initializeDataReader() {
-    this.dataReader = new MarsLbrDataReader(this.t);
+    this.dataReader = new NeptuneLbrDataReader(this.t);
   }
 }

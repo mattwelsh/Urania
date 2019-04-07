@@ -21,10 +21,23 @@ public class NeptuneComputerTest {
 
   @Test
   public void TestRectangularCoords() {
-    JulianDate jd = new JulianDate(2448724.5);
+
+    JulianDate jd = new JulianDate(2000, 1, 1, 12, 0, 0);
     NeptuneComputer comp = new NeptuneComputer(jd);
-    Assert.assertEquals(comp.getRectX(), 8.898676375116134, 0.00000000000000001);
-    Assert.assertEquals(comp.getRectY(), -28.84908689451416, 0.00000000000000001);
-    Assert.assertEquals(comp.getRectZ(), 0.3889584208310056, 0.00000000000000001);
+    Assert.assertEquals(comp.getRectX(), 16.8121116576, 0.0000000001);
+    Assert.assertEquals(comp.getRectY(), -24.9916630908, 0.0000000001);
+    Assert.assertEquals(comp.getRectZ(), 0.1272190171, 0.0000000001);
+
+    jd = new JulianDate(1899, 12, 31, 12, 0, 0);
+    comp = new NeptuneComputer(jd);
+    Assert.assertEquals(comp.getRectX(), 1.5164557467, 0.0000000001);
+    Assert.assertEquals(comp.getRectY(), 29.8254538901, 0.0000000001);
+    Assert.assertEquals(comp.getRectZ(), -0.6491400216, 0.0000000001);
+
+    jd = new JulianDate(1799, 12, 30, 12, 0, 0);
+    comp = new NeptuneComputer(jd);
+    Assert.assertEquals(comp.getRectX(), -20.3138943578, 0.0000000001);
+    Assert.assertEquals(comp.getRectY(), -22.4908255796, 0.0000000001);
+    Assert.assertEquals(comp.getRectZ(), 0.9309151535, 0.0000000001);
   }
 }
