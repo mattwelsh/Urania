@@ -21,13 +21,33 @@ public class SaturnComputerTest {
 
   @Test
   public void TestRectangularCoords() {
-    JulianDate jd = new JulianDate(2448724.5);
-    SaturnComputer comp = new SaturnComputer(jd);
-    Assert.assertEquals(comp.getRectX(), 6.584255335521728, 0.00000000000000001);
-    Assert.assertEquals(comp.getRectY(), -7.415759045470684, 0.00000000000000001);
-    Assert.assertEquals(comp.getRectZ(), -0.13257236353347296, 0.00000000000000001);
-    double[] eclipticCoords = new double[] {comp.getRectX(),comp.getRectY(),comp.getRectZ()};
-  }
 
+    JulianDate jd = new JulianDate(2000, 1, 1, 12, 0, 0);
+    SaturnComputer comp = new SaturnComputer(jd);
+    //System.out.println("\nX: " + comp.getRectX());
+    //System.out.println("\nY: " + comp.getRectY());
+    //System.out.println("\nZ: " + comp.getRectZ());
+    Assert.assertEquals(comp.getRectX(), 6.4064068573, 0.0000000001);
+    Assert.assertEquals(comp.getRectY(), 6.5699929449, 0.0000000001);
+    Assert.assertEquals(comp.getRectZ(), -0.3690768029, 0.0000000001);
+
+    jd = new JulianDate(1899, 12, 31, 12, 0, 0);
+    comp = new SaturnComputer(jd);
+    //System.out.println("\nX: " + comp.getRectX());
+    //System.out.println("\nY: " + comp.getRectY());
+    //System.out.println("\nZ: " + comp.getRectZ());
+    Assert.assertEquals(comp.getRectX(), -0.3695973750, 0.0000000001);
+    Assert.assertEquals(comp.getRectY(), -10.0582398188, 0.0000000001);
+    Assert.assertEquals(comp.getRectZ(), 0.1916854382, 0.0000000001);
+
+    jd = new JulianDate(1799, 12, 30, 12, 0, 0);
+    comp = new SaturnComputer(jd);
+    //System.out.println("\nX: " + comp.getRectX());
+    //System.out.println("\nY: " + comp.getRectY());
+    //System.out.println("\nZ: " + comp.getRectZ());
+    Assert.assertEquals(comp.getRectX(), -5.6790910870, 0.0000000001);
+    Assert.assertEquals(comp.getRectY(), 7.1152478120, 0.0000000001);
+    Assert.assertEquals(comp.getRectZ(), 0.0978521367, 0.0000000001);
+  }
 
 }
