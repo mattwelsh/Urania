@@ -17,20 +17,50 @@ import com.mattwelsh.astronomy.time.DeltaTCalculator;
 import com.mattwelsh.astronomy.time.JulianDate;
 
 /**
- * This class implements utility methods that are used in the library.
- * 
- * <p>NutationCalculatorFactory is a periodic oscillation of the rotational axis of the earth. It's split into two
- * components, one parallel to the ecliptic called the nutation in longitude, and one perpendicular
- * to the ecliptic, called the nutation in obliquity.</p>
- *
- * <p>The quantities are needed to calculate the apparent position of an astronomical object, and
- * for the apparent sidereal time.</p>
+ * This class implements utility methods that are used in the library, including methods to reduce
+ * numbers to various ranges.
  *
  * @author Matt Welsh (mitya.welsh@gmail.com)
  * @version 1.0
  * @since 1.0
  */
 public class Utilities {
+
+  /**
+   * Reduces a passed angle in degrees to the range 0-2pi radians.
+   * @param number The number to reduce.
+   * @return A number in the range 0-2pi radians.
+   */
+  public static double reduceTo2pi(double number) {
+
+    if (number < 0.0) {
+      number = number + (2.0*Math.PI * ((long) Math.abs(number / (2.0*Math.PI)) + 1));
+    }
+
+    if (number >= 2.0*Math.PI) {
+      number = number - (2.0*Math.PI * ((long) (number / (2.0*Math.PI))));
+    }
+
+    return number;
+  }
+
+  public static double reduceToRangePIOver2(double rads) {
+    double radians = Utilities.reduceTo2pi(rads);
+
+    int signum = 1;
+    if (radians > Math.PI) {
+      signum = -1;
+      radians -= Math.PI;
+    }
+
+    if (radians > Math.PI/2) {
+      radians = Math.PI - radians;
+    }
+    radians *= signum;
+    return radians;
+  }
+
+
 
   /**
    * Reduces a passed angle in degrees to the range 0-360.

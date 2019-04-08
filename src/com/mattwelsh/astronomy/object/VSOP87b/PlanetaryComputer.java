@@ -14,6 +14,7 @@
 package com.mattwelsh.astronomy.object.VSOP87b;
 
 import com.mattwelsh.astronomy.time.JulianDate;
+import com.mattwelsh.astronomy.utilities.Utilities;
 
 public abstract class PlanetaryComputer {
 
@@ -46,6 +47,33 @@ public abstract class PlanetaryComputer {
     updateFields();
   }
 
+  /**
+   * Returns the heliocentric longitude.
+   *
+   * @return The heliocentric longitude.
+   */
+  public double getHeliocentricLongitude() {
+    return this.heliocentricLongitude;
+  }
+
+  /**
+   * Returns the heliocentric latitude.
+   *
+   * @return The heliocentric latitude.
+   */
+  public double getHeliocentricLatitude() {
+    return this.heliocentricLatitude;
+  }
+
+  /**
+   * Returns the radius vector (AU).
+   *
+   * @return The radius vector.
+   */
+  public double getRadiusVector() {
+    return this.radiusVector;
+  }
+
   protected double computeT(double jDN) {
     return (jDN - 2451545.0) / 365250.0;
   }
@@ -58,8 +86,8 @@ public abstract class PlanetaryComputer {
 
   protected void updateFields() {
     this.t = computeT(julianDate.getJulianDayNumber());
-    this.heliocentricLongitude = dataReader.getHeliocentricLongitude();
-    this.heliocentricLatitude = dataReader.getHeliocentricLatitude();
+    this.heliocentricLongitude = Utilities.reduceTo2pi(dataReader.getHeliocentricLongitude());
+    this.heliocentricLatitude = Utilities.reduceToRangePIOver2(dataReader.getHeliocentricLatitude());
     this.radiusVector = dataReader.getRadiusVector();
   }
 
