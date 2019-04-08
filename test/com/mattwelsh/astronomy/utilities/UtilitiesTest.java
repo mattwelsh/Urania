@@ -20,7 +20,6 @@ public class UtilitiesTest {
 
   @Test
   public void reduceTo2pi() {
-    //System.out.println("\nRadians: " + Utilities.reduceTo2pi(2*Math.PI));
 
     Assert.assertEquals(Utilities.reduceTo2pi(Math.PI), Math.PI, 0.0000000000);
     Assert.assertEquals(Utilities.reduceTo2pi(Math.PI / 2.0), Math.PI/2.0, 0.0000000000);
@@ -36,11 +35,42 @@ public class UtilitiesTest {
   }
 
   @Test
-  public void reduceToRange360() {}
+  public void reduceToRange360() {
+    Assert.assertEquals(Utilities.reduceToRange360(90), 90, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange360(180), 180, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange360(270), 270, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange360(361), 1, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange360(450), 90, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange360(3600), 0, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange360(-90), 270, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange360(-180), 180, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange360(-3600), 0, 0.0000000000);
+  }
 
   @Test
-  public void reduceToRange24() {}
+  public void reduceToRange24() {
+    Assert.assertEquals(Utilities.reduceToRange24(0), 0, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange24(3), 3, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange24(6), 6, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange24(9), 9, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange24(12), 12, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange24(16), 16, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange24(19), 19, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange24(23), 23, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange24(24), 0, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange24(27), 3, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange24(48), 0, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange24(480), 0, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange24(-48), 0, 0.0000000000);
+
+  }
 
   @Test
-  public void reduceToRange90() {}
+  public void reduceToRange90() {
+    Assert.assertEquals(Utilities.reduceToRange90(0), 0, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange90(90), 90, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange90(-90), -90, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange90(100), 80, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceToRange90(-100), -80, 0.0000000000);
+  }
 }

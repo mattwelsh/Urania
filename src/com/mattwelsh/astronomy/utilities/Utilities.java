@@ -68,13 +68,14 @@ public class Utilities {
    * @return A number in the range 0-360.
    */
   public static double reduceToRange360(double number) {
-    if (number > 360.0) {
-      number = number - 360.0 * ((long) (number / 360.0));
-    }
 
     if (number < 0.0) {
       number = number + 360.0 * ((long) Math.abs(number / 360.0) + 1);
     }
+    if (number >= 360.0) {
+      number = number - 360.0 * ((long) (number / 360.0));
+    }
+
     return number;
   }
 
@@ -84,13 +85,14 @@ public class Utilities {
    * @return A number in the range 0-360.
    */
   public static double reduceToRange24(double hourAngle) {
-    if (hourAngle > 24.0) {
-      hourAngle = hourAngle - 24.0 * ((long) (hourAngle / 24.0));
-    }
 
     if (hourAngle < 0.0) {
       hourAngle = hourAngle + 24.0 * ((long) Math.abs(hourAngle / 24.0) + 1);
     }
+    if (hourAngle >= 24.0) {
+      hourAngle = hourAngle - 24.0 * ((long) (hourAngle / 24.0));
+    }
+
     return hourAngle;
   }
 
