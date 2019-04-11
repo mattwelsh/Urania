@@ -26,5 +26,13 @@ public class SunComputerTest {
     Assert.assertEquals(comp.getRectX(), 0.0023737877409974258, 0.00000000000000001);
     Assert.assertEquals(comp.getRectY(), 0.002933009668195873, 0.00000000000000001);
     Assert.assertEquals(comp.getRectZ(), -8.052385651173781E-5, 0.00000000000000001);
+
+
+    jd = new JulianDate(2448908.5);
+    comp = new SunComputer(jd);
+    System.out.println("\nX: " + comp.getRectX());
+    System.out.println("Y: " + comp.getRectY());
+    System.out.println("Z: " + comp.getRectZ());
+
   }
 }

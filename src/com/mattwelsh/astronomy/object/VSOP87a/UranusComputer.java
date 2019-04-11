@@ -60,27 +60,27 @@ public class UranusComputer {
   }
 
   /**
-   * Returns the value of the X coordinate of Earth's position in AU.
+   * Returns the value of the X coordinate of Uranus's position in AU.
    *
-   * @return The value of the X coordinate of Earth's position in AU.
+   * @return The value of the X coordinate of Uranus's position in AU.
    */
   public double getRectX() {
     return this.rectX;
   }
 
   /**
-   * Returns the value of the Y coordinate of Earth's position in AU.
+   * Returns the value of the Y coordinate of Uranus's position in AU.
    *
-   * @return The value of the Y coordinate of Earth's position in AU.
+   * @return The value of the Y coordinate of Uranus's position in AU.
    */
   public double getRectY() {
     return this.rectY;
   }
 
   /**
-   * Returns the value of the Z coordinate of Earth's position in AU.
+   * Returns the value of the Z coordinate of Uranus's position in AU.
    *
-   * @return The value of the Z coordinate of Earth's position in AU.
+   * @return The value of the Z coordinate of Uranus's position in AU.
    */
   public double getRectZ() {
     return this.rectZ;

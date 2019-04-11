@@ -60,27 +60,27 @@ public class NeptuneComputer {
   }
 
   /**
-   * Returns the value of the X coordinate of Mercury's position in AU.
+   * Returns the value of the X coordinate of Neptune's position in AU.
    *
-   * @return The value of the X coordinate of Mercury's position in AU.
+   * @return The value of the X coordinate of Neptune's position in AU.
    */
   public double getRectX() {
     return this.rectX;
   }
 
   /**
-   * Returns the value of the Y coordinate of Mercury's position in AU.
+   * Returns the value of the Y coordinate of Neptune's position in AU.
    *
-   * @return The value of the Y coordinate of Mercury's position in AU.
+   * @return The value of the Y coordinate of Neptune's position in AU.
    */
   public double getRectY() {
     return this.rectY;
   }
 
   /**
-   * Returns the value of the Z coordinate of Mercury's position in AU.
+   * Returns the value of the Z coordinate of Neptune's position in AU.
    *
-   * @return The value of the Z coordinate of Mercury's position in AU.
+   * @return The value of the Z coordinate of Neptune's position in AU.
    */
   public double getRectZ() {
     return this.rectZ;
