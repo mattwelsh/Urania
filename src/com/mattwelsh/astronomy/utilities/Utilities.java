@@ -34,11 +34,11 @@ public class Utilities {
   public static double reduceTo2pi(double number) {
 
     if (number < 0.0) {
-      number = number + (2.0*Math.PI * ((long) Math.abs(number / (2.0*Math.PI)) + 1));
+      number = number + (2.0 * Math.PI * ((long) Math.abs(number / (2.0 * Math.PI)) + 1));
     }
 
     if (number >= 2.0*Math.PI) {
-      number = number - (2.0*Math.PI * ((long) (number / (2.0*Math.PI))));
+      number = number - (2.0 * Math.PI * ((long) (number / (2.0  *Math.PI))));
     }
 
     return number;
