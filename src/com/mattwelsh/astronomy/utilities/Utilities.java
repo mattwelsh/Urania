@@ -17,7 +17,7 @@ import com.mattwelsh.astronomy.time.DeltaTCalculator;
 import com.mattwelsh.astronomy.time.JulianDate;
 
 /**
- * This class implements utility methods that are used in the library, including methods to reduce
+ * This class implements utility methods that are used in Urania, including methods to reduce
  * numbers to various ranges.
  *
  * @author Matt Welsh (mitya.welsh@gmail.com)
