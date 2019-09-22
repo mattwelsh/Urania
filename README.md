@@ -46,4 +46,4 @@ See the GNU General Public License for more details. You should have received a 
 Lesser General Public License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
-If you find errors in the code, I would be grateful if you send them to me at <a href="mailto:mitya.welsh@gmail.com">Matt Welsh</a>   
+If you find errors in the code, I would be grateful if you send them to me at <a href="mailto:mitya.welsh@gmail.com">mitya.welsh@gmail.com</a>   
