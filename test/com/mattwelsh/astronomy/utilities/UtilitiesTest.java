@@ -22,15 +22,15 @@ public class UtilitiesTest {
   public void reduceTo2pi() {
 
     Assert.assertEquals(Utilities.reduceTo2pi(Math.PI), Math.PI, 0.0000000000);
-    Assert.assertEquals(Utilities.reduceTo2pi(Math.PI / 2.0), Math.PI/2.0, 0.0000000000);
-    Assert.assertEquals(Utilities.reduceTo2pi(3*Math.PI), Math.PI, 0.0000000000);
-    Assert.assertEquals(Utilities.reduceTo2pi(4*Math.PI), 0.0, 0.0000000000);
-    Assert.assertEquals(Utilities.reduceTo2pi(-1*Math.PI), Math.PI, 0.0000000000);
-    Assert.assertEquals(Utilities.reduceTo2pi(-2*Math.PI), 0.0, 0.0000000000);
-    Assert.assertEquals(Utilities.reduceTo2pi(-3*Math.PI), Math.PI, 0.0000000000);
-    Assert.assertEquals(Utilities.reduceTo2pi(-4*Math.PI), 0.0, 0.0000000000);
-    Assert.assertEquals(Utilities.reduceTo2pi(-5*Math.PI), Math.PI, 0.0000000000);
-    Assert.assertEquals(Utilities.reduceTo2pi(-6*Math.PI), 0.0, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceTo2pi(Math.PI / 2.0), Math.PI / 2.0, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceTo2pi(3 * Math.PI), Math.PI, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceTo2pi(4 * Math.PI), 0.0, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceTo2pi(-1 * Math.PI), Math.PI, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceTo2pi(-2 * Math.PI), 0.0, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceTo2pi(-3 * Math.PI), Math.PI, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceTo2pi(-4 * Math.PI), 0.0, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceTo2pi(-5 * Math.PI), Math.PI, 0.0000000000);
+    Assert.assertEquals(Utilities.reduceTo2pi(-6 * Math.PI), 0.0, 0.0000000000);
 
   }
 
