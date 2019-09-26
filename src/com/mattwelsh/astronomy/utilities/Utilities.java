@@ -13,6 +13,9 @@
 
 package com.mattwelsh.astronomy.utilities;
 
+import com.mattwelsh.astronomy.coordinates.Declination;
+import com.mattwelsh.astronomy.coordinates.RaDec;
+import com.mattwelsh.astronomy.coordinates.RightAscension;
 import com.mattwelsh.astronomy.time.DeltaTCalculator;
 import com.mattwelsh.astronomy.time.JulianDate;
 
@@ -26,8 +29,21 @@ import com.mattwelsh.astronomy.time.JulianDate;
  */
 public class Utilities {
 
+  private static double CONSTANT_OF_ABERRATION = 20.49552;
+
+  /**
+   * Returns the constant of aberration in seconds used in computing the effect of aberration on
+   * celestial body.
+   *
+   * @return A number in the range 0-2pi radians.
+   */
+  public static double getConstantOfAberration() {
+    return CONSTANT_OF_ABERRATION;
+  }
+
   /**
    * Reduces a passed angle in degrees to the range 0-2pi radians.
+   *
    * @param number The number to reduce.
    * @return A number in the range 0-2pi radians.
    */
@@ -37,8 +53,8 @@ public class Utilities {
       number = number + (2.0 * Math.PI * ((long) Math.abs(number / (2.0 * Math.PI)) + 1));
     }
 
-    if (number >= 2.0*Math.PI) {
-      number = number - (2.0 * Math.PI * ((long) (number / (2.0  *Math.PI))));
+    if (number >= 2.0 * Math.PI) {
+      number = number - (2.0 * Math.PI * ((long) (number / (2.0 * Math.PI))));
     }
 
     return number;
@@ -53,7 +69,7 @@ public class Utilities {
       radians -= Math.PI;
     }
 
-    if (radians > Math.PI/2) {
+    if (radians > Math.PI / 2) {
       radians = Math.PI - radians;
     }
     radians *= signum;
@@ -61,9 +77,9 @@ public class Utilities {
   }
 
 
-
   /**
    * Reduces a passed angle in degrees to the range 0-360.
+   *
    * @param number The number to reduce.
    * @return A number in the range 0-360.
    */
@@ -81,6 +97,7 @@ public class Utilities {
 
   /**
    * Reduces a passed angle in degrees to the range 0-360.
+   *
    * @param hourAngle The number to reduce.
    * @return A number in the range 0-360.
    */
@@ -141,9 +158,40 @@ public class Utilities {
     return decimalDegrees;
   }
 
+  /**
+   * Convert the passed geocentric coordinates to equatorial coordinates.
+   *
+   * @param geocentricLongitude     The geocentric longitude (λ) expressed in degrees.
+   * @param geocentricLatitude      The geocentric latitude (β) expressed in degrees.
+   * @param trueObliquityOfEcliptic The true obliquity of the ecliptic (ϵ) expressed in degrees.
+   * @return The coordinate in right ascension and declination.
+   */
+  public static RaDec convertEclipticalToEquatorial(double geocentricLongitude,
+      double geocentricLatitude, double trueObliquityOfEcliptic) {
+
+    geocentricLongitude = Math.toRadians(geocentricLongitude);
+    geocentricLatitude = Math.toRadians(geocentricLatitude);
+    trueObliquityOfEcliptic = Math.toRadians(trueObliquityOfEcliptic);
+    double alpha = Math.sin(geocentricLongitude) * Math.cos(trueObliquityOfEcliptic);
+    alpha = alpha - (Math.tan(geocentricLatitude) * Math.sin(trueObliquityOfEcliptic));
+    alpha = Math.atan2(alpha, Math.cos(geocentricLongitude));
+    alpha = Math.toDegrees(alpha);
+    RightAscension ra = new RightAscension(alpha);
+
+    double delta = Math.sin(geocentricLatitude) * Math.cos(trueObliquityOfEcliptic);
+    delta = delta + (Math.cos(geocentricLatitude) * Math.sin(trueObliquityOfEcliptic) * Math
+        .sin(geocentricLongitude));
+    delta = Math.asin(delta);
+    delta = Math.toDegrees(delta);
+    Declination dec = new Declination(delta);
+    RaDec raDec = new RaDec(ra, dec);
+    return raDec;
+  }
+
   // -----------------------------------------------------------------------------------------------
   // Protected, package local, & and private methods
   // -----------------------------------------------------------------------------------------------
 
-  private Utilities(){}
+  private Utilities() {
+  }
 }

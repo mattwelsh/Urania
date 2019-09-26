@@ -48,18 +48,18 @@ public abstract class PlanetaryComputer {
   }
 
   /**
-   * Returns the heliocentric longitude.
+   * Returns the heliocentric longitude expressed in radians.
    *
-   * @return The heliocentric longitude.
+   * @return The heliocentric longitude expressed in radians.
    */
   public double getHeliocentricLongitude() {
     return this.heliocentricLongitude;
   }
 
   /**
-   * Returns the heliocentric latitude.
+   * Returns the heliocentric latitude expressed in radians.
    *
-   * @return The heliocentric latitude.
+   * @return The heliocentric latitude expressed in radians.
    */
   public double getHeliocentricLatitude() {
     return this.heliocentricLatitude;

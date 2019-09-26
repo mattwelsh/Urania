@@ -29,6 +29,4 @@ public class MeeusNutationCalculatorTest {
     Assert.assertEquals(meeus.getNutation().getNutationInObliquity(), 9.443, 0.001);
     Assert.assertEquals(meeus.getNutation().getTrueObliquityOfEcliptic(), 23.44357, 0.00001);
   }
-
-
 }
