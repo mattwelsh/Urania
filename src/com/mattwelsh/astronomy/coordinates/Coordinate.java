@@ -105,7 +105,7 @@ public abstract class Coordinate {
     integerDegrees = (int) decimalDegrees;
     double tempMin = (decimalDegrees - integerDegrees) * 60;
     seconds = tempMin - (int) tempMin;
-    minutes = Math.abs((int) (tempMin - seconds));
-    seconds = Math.abs(seconds * 60);
+    minutes = (int) (tempMin - seconds);
+    seconds = seconds * 60;
   }
 }

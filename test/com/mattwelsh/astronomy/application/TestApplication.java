@@ -42,7 +42,7 @@ public class TestApplication {
 
   private void computeVenusRaDec() {
 
-    // Compute JD for December 12, 1992
+    // Compute JD for December 20, 1992
     JulianDate jd = new JulianDate(1992, 12, 20, 0, 0, 0);
     System.out.println("JD: " + jd.getJulianDayNumber());
 
@@ -178,8 +178,8 @@ public class TestApplication {
             .getMinutes() + ":" + raDec.getRightAscension().getSeconds());
     System.out.println("Dec (δ): " + raDec.getDeclination().getDecimalDegrees());
     System.out.println(
-        "Dec (δ): " + raDec.getDeclination().getIntegerDegrees() + ":" + raDec.getDeclination()
-            .getMinutes() + ":" + raDec.getDeclination().getSeconds());
+        "Dec (δ): " + raDec.getDeclination().getIntegerDegrees() + ":" + Math.abs(raDec.getDeclination()
+            .getMinutes()) + ":" + Math.abs(raDec.getDeclination().getSeconds()));
   }
 
   private double computeSunTrueAnomaly(JulianDate jd) {

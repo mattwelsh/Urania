@@ -95,7 +95,6 @@ public class DeclinationTest {
     Assert.assertEquals(coord13.getMinutes(), 0, 0);
     Assert.assertEquals(coord14.getMinutes(), 0, 0);
     Assert.assertEquals(coord15.getMinutes(), -5, 0);
-
   }
 
   @Test
@@ -115,7 +114,7 @@ public class DeclinationTest {
     Assert.assertEquals(coord13.getSeconds(), -0.324, 0.001);
     Assert.assertEquals(coord14.getSeconds(), 0.0, 0.001);
     Assert.assertEquals(coord15.getSeconds(), -22.92 , 0.001);
-
+    Assert.assertEquals(coord15.getSeconds(), 54.99798306984758 , 0.001);
   }
 
   @Test
