@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 by Matt Welsh
+ * Copyright (C) 2019-2025 by Matt Welsh
  * This library is free software; you can redistribute it and/or modify it under the terms of the
  * GNU Lesser General Public License as published by the Free Software Foundation; either version
  * 2.1 of the License, or any later version.
@@ -14,7 +14,7 @@ package com.mattwelsh.astronomy.time;
 
 /**
  * This class represents Greenwich Sidereal Time, and can calculate the mean sidereal time at
- * Greenwich. In the near future it will be enhanced to also compute the apparent sidereal time
+ * Greenwich. In the  future it will be enhanced to also compute the apparent sidereal time
  * (the Greenwich hour angle of the true vernal equinox) which is the mean sidereal time corrected
  * for the nutation in right ascension and the true obliquity of the ecliptic.
  *

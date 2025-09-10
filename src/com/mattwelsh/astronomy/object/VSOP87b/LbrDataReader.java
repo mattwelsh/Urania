@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2019 by Matt Welsh
+ *  Copyright (C) 2019-2025 by Matt Welsh
  *  This library is free software; you can redistribute it and/or modify it under the terms of the
  *  GNU Lesser General Public License as published by the Free Software Foundation; either version
  *  2.1 of the License, or any later version.
@@ -14,8 +14,6 @@
 package com.mattwelsh.astronomy.object.VSOP87b;
 
 import com.mattwelsh.astronomy.object.VSOPDataReader;
-import java.io.InputStream;
-import java.util.Scanner;
 
 /**
  * This class is used to read the VSOP data files and are subclassed for the planets Mercury to

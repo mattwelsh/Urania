@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2019 by Matt Welsh
+ *  Copyright (C) 2019-2025 by Matt Welsh
  *  This library is free software; you can redistribute it and/or modify it under the terms of the
  *  GNU Lesser General Public License as published by the Free Software Foundation; either version
  *  2.1 of the License, or any later version.
@@ -42,8 +42,8 @@ public class TestApplication {
 
   private void computeVenusRaDec() {
 
-    // Compute JD for December 20, 1992
-    JulianDate jd = new JulianDate(1992, 12, 20, 0, 0, 0);
+
+    JulianDate jd = new JulianDate(2024, 2, 12, 1, 33, 39);
     System.out.println("JD: " + jd.getJulianDayNumber());
 
     // Create and instance of a VenusComputer for that date
@@ -145,8 +145,8 @@ public class TestApplication {
     double t = computeT(jd);
     double earthOrbitEccentricity = computeEarthOrbitEccentricity(t);
     double longitudeOfPerihelion = computeLongitudeOfPerihelion(t);
-    System.out.println("earthOrbitEccentricity (e): " + earthOrbitEccentricity);
-    System.out.println("longitudeOfPerihelion (π): " + longitudeOfPerihelion);
+    System.out.println("Earth Orbit Eccentricity (e): " + earthOrbitEccentricity);
+    System.out.println("Earth Longitude of Perihelion (π): " + longitudeOfPerihelion);
 
     // Adjust the geocentric longitude & latitude
     double constAbber = -1 * Utilities.getConstantOfAberration();

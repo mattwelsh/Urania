@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 by Matt Welsh
+ * Copyright (C) 2019-2025 by Matt Welsh
  * This library is free software; you can redistribute it and/or modify it under the terms of the
  * GNU Lesser General Public License as published by the Free Software Foundation; either version
  * 2.1 of the License, or any later version.
@@ -103,7 +103,7 @@ public abstract class Coordinate {
 
   private void calculateMinutesAndSeconds() {
     integerDegrees = (int) decimalDegrees;
-    double tempMin = (decimalDegrees - integerDegrees) * 60;
+    double tempMin = Math.abs((decimalDegrees - integerDegrees) * 60);
     seconds = tempMin - (int) tempMin;
     minutes = (int) (tempMin - seconds);
     seconds = seconds * 60;

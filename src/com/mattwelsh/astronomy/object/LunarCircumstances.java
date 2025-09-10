@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2019 by Matt Welsh
+ *  Copyright (C) 2019-2025 by Matt Welsh
  *  This library is free software; you can redistribute it and/or modify it under the terms of the
  *  GNU Lesser General Public License as published by the Free Software Foundation; either version
  *  2.1 of the License, or any later version.
@@ -15,7 +15,7 @@ package com.mattwelsh.astronomy.object;
 
 /**
  * Use the method of Jean Meeus in Astronomical Algorithms. This is the default method in the first
- * version of the library, but on that will use the method of Michelle Chapront-Touze & Jean
+ * version of the library, but one that will use the method of Michelle Chapront-Touze & Jean
  * Chapront in Lunar Tables and Programs from 4000 B.C. to A.D. 8000 will be added.
  */
 public enum LunarCircumstances {

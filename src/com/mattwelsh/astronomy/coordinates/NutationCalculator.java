@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2019 by Matt Welsh
+ *  Copyright (C) 2019-2025 by Matt Welsh
  *  This library is free software; you can redistribute it and/or modify it under the terms of the
  *  GNU Lesser General Public License as published by the Free Software Foundation; either version
  *  2.1 of the License, or any later version.
@@ -12,8 +12,6 @@
  */
 
 package com.mattwelsh.astronomy.coordinates;
-
-import com.mattwelsh.astronomy.time.JulianDate;
 
 /**
  * This interface defines the API that NutationCalculators must implement. There can be many

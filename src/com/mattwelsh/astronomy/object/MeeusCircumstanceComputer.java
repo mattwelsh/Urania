@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2019-2024 by Matt Welsh
+ *  Copyright (C) 2019-2025 by Matt Welsh
  *  This library is free software; you can redistribute it and/or modify it under the terms of the
  *  GNU Lesser General Public License as published by the Free Software Foundation; either version
  *  2.1 of the License, or any later version.
@@ -50,7 +50,7 @@ class MeeusCircumstanceComputer implements LunarCircumstanceComputer {
   private double sumDistance;
   private double sumLatitude;
   private double distance;
-  private double equatorialHorizontalParallax;
+  //private double equatorialHorizontalParallax;
   private double apparentLongitude;
   private double longitude;
   private double latitude;
@@ -443,7 +443,7 @@ class MeeusCircumstanceComputer implements LunarCircumstanceComputer {
     longitude = this.meanLongitude + this.sumLongitude / 1000000.0;
     latitude = this.sumLatitude / 1000000.0;
     distance = 385000.56 + this.sumDistance / 1000;
-    equatorialHorizontalParallax = Math.toDegrees(Math.asin(6378.14 / distance));
+    //double equatorialHorizontalParallax = Math.toDegrees(Math.asin(6378.14 / distance));
     Nutation nutation = NutationCalculatorFactory.MEEUS.getCalculator(this.julianDate).getNutation();
 
     apparentLongitude = longitude + (nutation.getNutationInLongitude() / 3600);

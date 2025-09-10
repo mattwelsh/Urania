@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 by Matt Welsh
+ * Copyright (C) 2019-2025 by Matt Welsh
  * This library is free software; you can redistribute it and/or modify it under the terms of the
  * GNU Lesser General Public License as published by the Free Software Foundation; either version
  * 2.1 of the License, or any later version.
@@ -53,7 +53,7 @@ public class DeclinationTest {
     Assert.assertEquals(coord10.getDecimalDegrees(), -90, 0.001);
     Assert.assertEquals(coord11.getDecimalDegrees(), -78.3246, 0.001);
     Assert.assertEquals(coord12.getDecimalDegrees(), -45, 0.001);
-    Assert.assertEquals(coord13.getDecimalDegrees(), 0, 0.001);
+    Assert.assertEquals(coord13.getDecimalDegrees(), -0.00009, 0.001);
     Assert.assertEquals(coord14.getDecimalDegrees(), 45, 0.001);
     Assert.assertEquals(coord15.getDecimalDegrees(), -22.0897, 0.001);
   }
@@ -88,13 +88,13 @@ public class DeclinationTest {
     Assert.assertEquals(coord6.getMinutes(), 5, 0);
     Assert.assertEquals(coord7.getMinutes(), 0, 0);
     Assert.assertEquals(coord8.getMinutes(), 0, 0);
-    Assert.assertEquals(coord9.getMinutes(), -14, 0);
+    Assert.assertEquals(coord9.getMinutes(), 14, 0);
     Assert.assertEquals(coord10.getMinutes(), 0, 0);
-    Assert.assertEquals(coord11.getMinutes(), -19, 0);
+    Assert.assertEquals(coord11.getMinutes(), 19, 0);
     Assert.assertEquals(coord12.getMinutes(), 0, 0);
     Assert.assertEquals(coord13.getMinutes(), 0, 0);
     Assert.assertEquals(coord14.getMinutes(), 0, 0);
-    Assert.assertEquals(coord15.getMinutes(), -5, 0);
+    Assert.assertEquals(coord15.getMinutes(), 5, 0);
   }
 
   @Test
@@ -107,14 +107,13 @@ public class DeclinationTest {
     Assert.assertEquals(coord6.getSeconds(), 22.92 , 0.001);
     Assert.assertEquals(coord7.getSeconds(), 0.0 , 0.001);
     Assert.assertEquals(coord8.getSeconds(), 0.0, 0.001);
-    Assert.assertEquals(coord9.getSeconds(), -21.012, 0.001);
+    Assert.assertEquals(coord9.getSeconds(), 21.012, 0.001);
     Assert.assertEquals(coord10.getSeconds(), 0.0, 0.001);
-    Assert.assertEquals(coord11.getSeconds(), -28.56, 0.001);
+    Assert.assertEquals(coord11.getSeconds(), 28.56, 0.001);
     Assert.assertEquals(coord12.getSeconds(), 0.0, 0.001);
-    Assert.assertEquals(coord13.getSeconds(), -0.324, 0.001);
+    Assert.assertEquals(coord13.getSeconds(), 0.324, 0.001);
     Assert.assertEquals(coord14.getSeconds(), 0.0, 0.001);
-    Assert.assertEquals(coord15.getSeconds(), -22.92 , 0.001);
-    Assert.assertEquals(coord15.getSeconds(), 54.99798306984758 , 0.001);
+    Assert.assertEquals(coord15.getSeconds(), 22.92 , 0.001);
   }
 
   @Test
@@ -128,7 +127,7 @@ public class DeclinationTest {
     coord.setDecimalDegrees(-517.9103);
     Assert.assertEquals(coord.getDecimalDegrees(), -22.0897, 0.001);
     Assert.assertEquals(coord.getIntegerDegrees(), -22, 0);
-    Assert.assertEquals(coord.getMinutes(), -5, 0);
-    Assert.assertEquals(coord.getSeconds(), -22.92 , 0.001);
+    Assert.assertEquals(coord.getMinutes(), 5, 0);
+    Assert.assertEquals(coord.getSeconds(), 22.92 , 0.001);
   }
 }

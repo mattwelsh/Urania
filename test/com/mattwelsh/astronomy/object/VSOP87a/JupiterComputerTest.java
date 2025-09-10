@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2019 by Matt Welsh
+ *  Copyright (C) 2019-2025 by Matt Welsh
  *  This library is free software; you can redistribute it and/or modify it under the terms of the
  *  GNU Lesser General Public License as published by the Free Software Foundation; either version
  *  2.1 of the License, or any later version.
@@ -13,11 +13,7 @@
 
 package com.mattwelsh.astronomy.object.VSOP87a;
 
-import com.mattwelsh.astronomy.coordinates.Declination;
-import com.mattwelsh.astronomy.coordinates.RightAscension;
-import com.mattwelsh.astronomy.coordinates.SimpleCoordinate;
 import com.mattwelsh.astronomy.time.JulianDate;
-import com.mattwelsh.astronomy.utilities.Utilities;
 import org.junit.Assert;
 import org.junit.Test;
 
